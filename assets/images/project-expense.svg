@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="expBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b101c" />
+      <stop offset="100%" stop-color="#060911" />
+    </linearGradient>
+    <linearGradient id="cardGradExp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141a2a" />
+      <stop offset="100%" stop-color="#0e1320" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#expBg)" />
+
+  <!-- App Header -->
+  <rect x="0" y="0" width="800" height="48" fill="#111624" stroke="#1c2538" stroke-width="1" />
+  <circle cx="28" cy="24" r="8" fill="#10b981" />
+  <text x="46" y="29" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">SmartSpend • Student Budget &amp; Expense Tracker</text>
+  <rect x="650" y="11" width="120" height="26" rx="6" fill="#10b981" />
+  <text x="668" y="28" fill="#090a0f" font-family="sans-serif" font-size="11" font-weight="bold">+ Add Expense</text>
+
+  <!-- Top KPI Cards -->
+  <g transform="translate(30, 65)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="170" height="75" rx="10" fill="url(#cardGradExp)" stroke="#1e293b" stroke-width="1" />
+    <text x="16" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Monthly Budget</text>
+    <text x="16" y="52" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">₹8,000</text>
+    <text x="110" y="52" fill="#38bdf8" font-family="sans-serif" font-size="11">Active</text>
+
+    <!-- Card 2 -->
+    <rect x="190" y="0" width="170" height="75" rx="10" fill="url(#cardGradExp)" stroke="#1e293b" stroke-width="1" />
+    <text x="206" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Total Spent</text>
+    <text x="206" y="52" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">₹4,620</text>
+    <text x="290" y="52" fill="#10b981" font-family="sans-serif" font-size="11">57.7%</text>
+
+    <!-- Card 3 -->
+    <rect x="380" y="0" width="170" height="75" rx="10" fill="url(#cardGradExp)" stroke="#1e293b" stroke-width="1" />
+    <text x="396" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Remaining Balance</text>
+    <text x="396" y="52" fill="#10b981" font-family="sans-serif" font-size="20" font-weight="bold">₹3,380</text>
+    <text x="495" y="52" fill="#10b981" font-family="sans-serif" font-size="11">Safe</text>
+
+    <!-- Card 4 -->
+    <rect x="570" y="0" width="170" height="75" rx="10" fill="url(#cardGradExp)" stroke="#1e293b" stroke-width="1" />
+    <text x="586" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Target Savings</text>
+    <text x="586" y="52" fill="#a855f7" font-family="sans-serif" font-size="20" font-weight="bold">₹1,500</text>
+    <text x="690" y="52" fill="#a855f7" font-family="sans-serif" font-size="11">✓ On Track</text>
+  </g>
+
+  <!-- Left: Category Breakdown Donut Visualization -->
+  <g transform="translate(30, 155)">
+    <rect x="0" y="0" width="340" height="295" rx="12" fill="url(#cardGradExp)" stroke="#1e293b" stroke-width="1" />
+    <text x="20" y="32" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Expense Category Breakdown</text>
+
+    <!-- Donut SVG -->
+    <g transform="translate(110, 150)">
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#38bdf8" stroke-width="20" stroke-dasharray="140 377" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#10b981" stroke-width="20" stroke-dasharray="100 377" stroke-dashoffset="-140" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#f59e0b" stroke-width="20" stroke-dasharray="70 377" stroke-dashoffset="-240" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#a855f7" stroke-width="20" stroke-dasharray="50 377" stroke-dashoffset="-310" stroke-linecap="round" />
+      <text x="0" y="5" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">₹4,620</text>
+      <text x="0" y="20" fill="#94a3b8" font-family="sans-serif" font-size="9" text-anchor="middle">Oct Total</text>
+    </g>
+
+    <!-- Donut Legend -->
+    <g transform="translate(205, 80)">
+      <circle cx="6" cy="6" r="5" fill="#38bdf8" />
+      <text x="18" y="10" fill="#f8fafc" font-family="sans-serif" font-size="11">Books &amp; Courses</text>
+      <text x="18" y="24" fill="#64748b" font-family="sans-serif" font-size="10">₹1,800 (39%)</text>
+
+      <circle cx="6" cy="50" r="5" fill="#10b981" />
+      <text x="18" y="54" fill="#f8fafc" font-family="sans-serif" font-size="11">Food &amp; Dining</text>
+      <text x="18" y="68" fill="#64748b" font-family="sans-serif" font-size="10">₹1,320 (29%)</text>
+
+      <circle cx="6" cy="94" r="5" fill="#f59e0b" />
+      <text x="18" y="98" fill="#f8fafc" font-family="sans-serif" font-size="11">Transport &amp; Travel</text>
+      <text x="18" y="112" fill="#64748b" font-family="sans-serif" font-size="10">₹900 (19%)</text>
+
+      <circle cx="6" cy="138" r="5" fill="#a855f7" />
+      <text x="18" y="142" fill="#f8fafc" font-family="sans-serif" font-size="11">Utilities &amp; Mobile</text>
+      <text x="18" y="156" fill="#64748b" font-family="sans-serif" font-size="10">₹600 (13%)</text>
+    </g>
+  </g>
+
+  <!-- Right: Recent Transaction Log -->
+  <g transform="translate(390, 155)">
+    <rect x="0" y="0" width="380" height="295" rx="12" fill="url(#cardGradExp)" stroke="#1e293b" stroke-width="1" />
+    <text x="20" y="32" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Recent Transactions (Local Storage)</text>
+
+    <!-- Table items -->
+    <g transform="translate(20, 55)">
+      <line x1="0" y1="36" x2="340" y2="36" stroke="#1a2336" />
+      <text x="0" y="22" fill="#f8fafc" font-family="sans-serif" font-size="11.5" font-weight="500">Udemy Web Dev Course</text>
+      <text x="0" y="32" fill="#64748b" font-family="sans-serif" font-size="9.5">Oct 21 • Books &amp; Courses</text>
+      <text x="280" y="22" fill="#ef4444" font-family="sans-serif" font-size="12" font-weight="bold">- ₹499</text>
+    </g>
+
+    <g transform="translate(20, 105)">
+      <line x1="0" y1="36" x2="340" y2="36" stroke="#1a2336" />
+      <text x="0" y="22" fill="#f8fafc" font-family="sans-serif" font-size="11.5" font-weight="500">College Cafeteria Lunch</text>
+      <text x="0" y="32" fill="#64748b" font-family="sans-serif" font-size="9.5">Oct 20 • Food &amp; Dining</text>
+      <text x="285" y="22" fill="#ef4444" font-family="sans-serif" font-size="12" font-weight="bold">- ₹120</text>
+    </g>
+
+    <g transform="translate(20, 155)">
+      <line x1="0" y1="36" x2="340" y2="36" stroke="#1a2336" />
+      <text x="0" y="22" fill="#f8fafc" font-family="sans-serif" font-size="11.5" font-weight="500">Monthly Bus Pass Recharge</text>
+      <text x="0" y="32" fill="#64748b" font-family="sans-serif" font-size="9.5">Oct 18 • Transport</text>
+      <text x="285" y="22" fill="#ef4444" font-family="sans-serif" font-size="12" font-weight="bold">- ₹450</text>
+    </g>
+
+    <g transform="translate(20, 205)">
+      <text x="0" y="22" fill="#f8fafc" font-family="sans-serif" font-size="11.5" font-weight="500">Monthly Pocket Allowance</text>
+      <text x="0" y="32" fill="#64748b" font-family="sans-serif" font-size="9.5">Oct 01 • Deposit</text>
+      <text x="270" y="22" fill="#10b981" font-family="sans-serif" font-size="12" font-weight="bold">+ ₹4,000</text>
+    </g>
+  </g>
+</svg>

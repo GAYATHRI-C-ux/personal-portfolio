@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="repBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="100%" stop-color="#060913" />
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="cardGradRep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141a29" />
+      <stop offset="100%" stop-color="#0e1320" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#repBg)" />
+
+  <!-- App Header -->
+  <rect x="0" y="0" width="800" height="50" fill="#111625" stroke="#1c2538" stroke-width="1" />
+  <circle cx="32" cy="25" r="9" fill="#10b981" />
+  <text x="52" y="30" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">DataCore Analytics • Executive BI Suite</text>
+
+  <!-- Date range dropdown & Export -->
+  <rect x="520" y="13" width="130" height="25" rx="6" fill="#0b0f19" stroke="#1e293b" stroke-width="1" />
+  <text x="532" y="29" fill="#94a3b8" font-family="sans-serif" font-size="11">Last 30 Days ▾</text>
+
+  <rect x="665" y="13" width="105" height="25" rx="6" fill="#10b981" />
+  <text x="677" y="29" fill="#090a0f" font-family="sans-serif" font-size="11" font-weight="bold">Export PDF / CSV</text>
+
+  <!-- Top Metrics Ribbon -->
+  <g transform="translate(30, 68)">
+    <!-- KPI 1 -->
+    <rect x="0" y="0" width="170" height="75" rx="10" fill="url(#cardGradRep)" stroke="#1e293b" stroke-width="1" />
+    <text x="16" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Total Revenue</text>
+    <text x="16" y="52" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">$1,284,900</text>
+    <text x="110" y="52" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="bold">▲ 24.6%</text>
+
+    <!-- KPI 2 -->
+    <rect x="190" y="0" width="170" height="75" rx="10" fill="url(#cardGradRep)" stroke="#1e293b" stroke-width="1" />
+    <text x="206" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Query Latency (p99)</text>
+    <text x="206" y="52" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">18.4 ms</text>
+    <text x="295" y="52" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="bold">▼ 62%</text>
+
+    <!-- KPI 3 -->
+    <rect x="380" y="0" width="170" height="75" rx="10" fill="url(#cardGradRep)" stroke="#1e293b" stroke-width="1" />
+    <text x="396" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Sync Records/hr</text>
+    <text x="396" y="52" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">4.82M</text>
+    <text x="495" y="52" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">Live</text>
+
+    <!-- KPI 4 -->
+    <rect x="570" y="0" width="170" height="75" rx="10" fill="url(#cardGradRep)" stroke="#1e293b" stroke-width="1" />
+    <text x="586" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11">Database Integrity</text>
+    <text x="586" y="52" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">100.0%</text>
+    <circle cx="695" cy="46" r="5" fill="#10b981" />
+  </g>
+
+  <!-- Big Interactive Area Chart (Revenue & Transaction Velocity) -->
+  <g transform="translate(30, 160)">
+    <rect x="0" y="0" width="480" height="295" rx="12" fill="url(#cardGradRep)" stroke="#1e293b" stroke-width="1" />
+    <text x="20" y="32" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Transaction Velocity & Recurring Revenue Growth</text>
+    
+    <!-- Chart Grid Lines -->
+    <g stroke="#1a2233" stroke-width="1">
+      <line x1="20" y1="70" x2="460" y2="70" />
+      <line x1="20" y1="120" x2="460" y2="120" />
+      <line x1="20" y1="170" x2="460" y2="170" />
+      <line x1="20" y1="220" x2="460" y2="220" />
+      <line x1="20" y1="260" x2="460" y2="260" />
+    </g>
+
+    <!-- Area Fill -->
+    <path d="M 30 240 Q 90 220 150 180 T 270 140 T 370 90 T 450 75 L 450 260 L 30 260 Z" fill="url(#chartGrad)" />
+    <!-- Line Stroke -->
+    <path d="M 30 240 Q 90 220 150 180 T 270 140 T 370 90 T 450 75" fill="none" stroke="#10b981" stroke-width="3" />
+
+    <!-- Secondary Comparison Line -->
+    <path d="M 30 250 Q 110 240 190 210 T 330 180 T 450 160" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5 3" />
+
+    <!-- Dots on latest points -->
+    <circle cx="450" cy="75" r="5" fill="#10b981" stroke="#f8fafc" stroke-width="2" />
+    
+    <!-- Axis Labels -->
+    <text x="25" y="278" fill="#64748b" font-family="sans-serif" font-size="10">W1</text>
+    <text x="135" y="278" fill="#64748b" font-family="sans-serif" font-size="10">W2</text>
+    <text x="245" y="278" fill="#64748b" font-family="sans-serif" font-size="10">W3</text>
+    <text x="355" y="278" fill="#64748b" font-family="sans-serif" font-size="10">W4</text>
+    <text x="440" y="278" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="bold">Peak Today</text>
+  </g>
+
+  <!-- SQL & Schema Status Side Panel -->
+  <g transform="translate(530, 160)">
+    <rect x="0" y="0" width="240" height="295" rx="12" fill="url(#cardGradRep)" stroke="#1e293b" stroke-width="1" />
+    <text x="18" y="32" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Database Schema Health</text>
+    
+    <!-- Code block / Query Monitor -->
+    <rect x="15" y="50" width="210" height="80" rx="8" fill="#090d16" stroke="#1e2638" stroke-width="1" />
+    <text x="25" y="70" fill="#38bdf8" font-family="monospace" font-size="10">SELECT DATE_TRUNC('hour', t)</text>
+    <text x="25" y="85" fill="#f8fafc" font-family="monospace" font-size="10">SUM(amount) FROM ledger</text>
+    <text x="25" y="100" fill="#10b981" font-family="monospace" font-size="10">WHERE status = 'settled'</text>
+    <text x="25" y="118" fill="#a855f7" font-family="monospace" font-size="9">-- Index Scan: 0.8ms</text>
+
+    <!-- Cluster nodes -->
+    <text x="18" y="155" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="bold">REPLICATION NODES</text>
+    
+    <g transform="translate(18, 170)">
+      <circle cx="6" cy="6" r="4" fill="#10b981" />
+      <text x="18" y="10" fill="#f8fafc" font-family="sans-serif" font-size="11">Master (PostgreSQL 16)</text>
+      <text x="160" y="10" fill="#10b981" font-family="monospace" font-size="10">Primary</text>
+    </g>
+
+    <g transform="translate(18, 195)">
+      <circle cx="6" cy="6" r="4" fill="#10b981" />
+      <text x="18" y="10" fill="#f8fafc" font-family="sans-serif" font-size="11">Read Replica US-East</text>
+      <text x="165" y="10" fill="#94a3b8" font-family="monospace" font-size="10">0ms lag</text>
+    </g>
+
+    <g transform="translate(18, 220)">
+      <circle cx="6" cy="6" r="4" fill="#10b981" />
+      <text x="18" y="10" fill="#f8fafc" font-family="sans-serif" font-size="11">Read Replica EU-West</text>
+      <text x="165" y="10" fill="#94a3b8" font-family="monospace" font-size="10">2ms lag</text>
+    </g>
+
+    <rect x="18" y="248" width="204" height="32" rx="6" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="1" />
+    <text x="35" y="268" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="600">✓ Automated ETL Running</text>
+  </g>
+</svg>

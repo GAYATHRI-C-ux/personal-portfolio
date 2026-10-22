@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="lightBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <filter id="cardShadowLight" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
+    </filter>
+  </defs>
+
+  <!-- Browser Frame Background -->
+  <rect width="800" height="480" fill="url(#lightBg)" />
+
+  <!-- Browser Top Bar -->
+  <rect x="0" y="0" width="800" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <circle cx="24" cy="21" r="5" fill="#ef4444" />
+  <circle cx="40" cy="21" r="5" fill="#f59e0b" />
+  <circle cx="56" cy="21" r="5" fill="#10b981" />
+
+  <!-- Address Bar -->
+  <rect x="90" y="9" width="340" height="24" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+  <text x="105" y="25" fill="#64748b" font-family="monospace" font-size="11">skillmatrix.app/analytics?role=developer</text>
+
+  <!-- Right Status Badge -->
+  <rect x="640" y="9" width="135" height="24" rx="12" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1" />
+  <text x="655" y="25" fill="#0284c7" font-family="sans-serif" font-size="11" font-weight="700">Profile Match: 88%</text>
+
+  <!-- Left: Candidate Skill Match Analytics Card -->
+  <g transform="translate(25, 60)">
+    <rect x="0" y="0" width="365" height="395" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadowLight)" />
+    
+    <text x="20" y="32" fill="#0f172a" font-family="sans-serif" font-size="14" font-weight="800">Job Role: Full-Stack IT Developer</text>
+    <text x="20" y="48" fill="#64748b" font-family="sans-serif" font-size="11">Benchmarking skills against industry requirements</text>
+
+    <!-- Skill Bar 1: Java & Python -->
+    <g transform="translate(20, 72)">
+      <text x="0" y="14" fill="#1e293b" font-family="sans-serif" font-size="12" font-weight="600">Core Languages (Java, Python, C)</text>
+      <text x="265" y="14" fill="#0284c7" font-family="monospace" font-size="11" font-weight="700">92% Match</text>
+      <rect x="0" y="22" width="325" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="22" width="299" height="8" rx="4" fill="url(#barGrad)" />
+    </g>
+
+    <!-- Skill Bar 2: Web Technologies -->
+    <g transform="translate(20, 122)">
+      <text x="0" y="14" fill="#1e293b" font-family="sans-serif" font-size="12" font-weight="600">Web Tech (HTML5, CSS3, JavaScript)</text>
+      <text x="265" y="14" fill="#0284c7" font-family="monospace" font-size="11" font-weight="700">90% Match</text>
+      <rect x="0" y="22" width="325" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="22" width="292" height="8" rx="4" fill="url(#barGrad)" />
+    </g>
+
+    <!-- Skill Bar 3: Database & Vector Search -->
+    <g transform="translate(20, 172)">
+      <text x="0" y="14" fill="#1e293b" font-family="sans-serif" font-size="12" font-weight="600">Databases (MongoDB, SQLite, Vector RAG)</text>
+      <text x="265" y="14" fill="#0284c7" font-family="monospace" font-size="11" font-weight="700">86% Match</text>
+      <rect x="0" y="22" width="325" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="22" width="279" height="8" rx="4" fill="url(#barGrad)" />
+    </g>
+
+    <!-- Skill Bar 4: Problem Solving -->
+    <g transform="translate(20, 222)">
+      <text x="0" y="14" fill="#1e293b" font-family="sans-serif" font-size="12" font-weight="600">Data Structures &amp; Problem Solving</text>
+      <text x="265" y="14" fill="#0284c7" font-family="monospace" font-size="11" font-weight="700">84% Match</text>
+      <rect x="0" y="22" width="325" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="22" width="273" height="8" rx="4" fill="url(#barGrad)" />
+    </g>
+
+    <!-- Gap Alert Box -->
+    <g transform="translate(20, 285)">
+      <rect x="0" y="0" width="325" height="85" rx="8" fill="#fffbeb" stroke="#fef3c7" stroke-width="1.5" />
+      <text x="14" y="25" fill="#b45309" font-family="sans-serif" font-size="11.5" font-weight="700">⚠️ Identified Skill Gap: Cloud Architecture</text>
+      <text x="14" y="45" fill="#475569" font-family="sans-serif" font-size="11">Recommended: Microsoft Azure AZ-900 Prep</text>
+      <text x="14" y="65" fill="#0284c7" font-family="sans-serif" font-size="11" font-weight="700">Placement Outcome Uplift: +14% Candidate Readiness</text>
+    </g>
+  </g>
+
+  <!-- Right: Recommendation & Outcome Cards -->
+  <g transform="translate(410, 60)">
+    <rect x="0" y="0" width="365" height="395" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#cardShadowLight)" />
+    
+    <text x="20" y="32" fill="#0f172a" font-family="sans-serif" font-size="14" font-weight="800">Targeted Learning Path &amp; Outcomes</text>
+
+    <!-- Course Card 1 -->
+    <g transform="translate(20, 52)">
+      <rect x="0" y="0" width="325" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+      <text x="14" y="25" fill="#0f172a" font-family="sans-serif" font-size="12" font-weight="700">Building RAG Apps with MongoDB</text>
+      <text x="14" y="44" fill="#64748b" font-family="sans-serif" font-size="11">Vector Search &amp; Semantic Embeddings</text>
+      <rect x="14" y="58" width="95" height="24" rx="4" fill="#dcfce7" />
+      <text x="22" y="74" fill="#15803d" font-family="sans-serif" font-size="10.5" font-weight="700">COMPLETED ✓</text>
+      <text x="235" y="74" fill="#64748b" font-family="sans-serif" font-size="11">MongoDB Univ</text>
+    </g>
+
+    <!-- Course Card 2 -->
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="325" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+      <text x="14" y="25" fill="#0f172a" font-family="sans-serif" font-size="12" font-weight="700">Advanced Java OOP &amp; Data Structures</text>
+      <text x="14" y="44" fill="#64748b" font-family="sans-serif" font-size="11">KG Information Systems Certification</text>
+      <rect x="14" y="58" width="95" height="24" rx="4" fill="#dcfce7" />
+      <text x="22" y="74" fill="#15803d" font-family="sans-serif" font-size="10.5" font-weight="700">COMPLETED ✓</text>
+      <text x="245" y="74" fill="#64748b" font-family="sans-serif" font-size="11">Coursera</text>
+    </g>
+
+    <!-- Final Outcome Box -->
+    <g transform="translate(20, 270)">
+      <rect x="0" y="0" width="325" height="100" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1" />
+      <text x="14" y="25" fill="#0369a1" font-family="sans-serif" font-size="12" font-weight="700">Employment Outcome Tracker:</text>
+      <text x="14" y="48" fill="#0f172a" font-family="sans-serif" font-size="14" font-weight="800">Target Role: Software Engineer / IT</text>
+      <text x="14" y="70" fill="#475569" font-family="sans-serif" font-size="11">• 14 Credentials Verified (Microsoft, IBM, MongoDB)</text>
+      <text x="14" y="88" fill="#475569" font-family="sans-serif" font-size="11">• Candidate Verified for Entry-Level Recruitment</text>
+    </g>
+  </g>
+</svg>

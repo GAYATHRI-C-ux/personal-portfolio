@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="studyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c101d" />
+      <stop offset="100%" stop-color="#060812" />
+    </linearGradient>
+    <linearGradient id="cardStudy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161c2e" />
+      <stop offset="100%" stop-color="#101524" />
+    </linearGradient>
+    <linearGradient id="gemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#studyBg)" />
+
+  <!-- Window Header -->
+  <rect x="0" y="0" width="800" height="46" fill="#121727" stroke="#1d263a" stroke-width="1" />
+  <circle cx="25" cy="23" r="5" fill="#ef4444" />
+  <circle cx="42" cy="23" r="5" fill="#f59e0b" />
+  <circle cx="59" cy="23" r="5" fill="#10b981" />
+  <text x="95" y="28" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="bold">StudyGenie AI • Intelligent Student Revision Assistant</text>
+  <rect x="635" y="10" width="140" height="26" rx="13" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1" />
+  <text x="650" y="27" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="600">⚡ LLM Model Active</text>
+
+  <!-- Left: Upload & Document Preview -->
+  <g transform="translate(30, 65)">
+    <rect x="0" y="0" width="280" height="385" rx="12" fill="url(#cardStudy)" stroke="#1e293b" stroke-width="1" />
+    <text x="20" y="30" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Uploaded Study Material</text>
+
+    <!-- Upload Box Preview -->
+    <rect x="20" y="48" width="240" height="80" rx="8" fill="#090d16" stroke="#10b981" stroke-width="1" stroke-dasharray="4 2" />
+    <circle cx="140" cy="78" r="14" fill="#10b981" fill-opacity="0.2" />
+    <path d="M 140 72 L 140 84 M 134 78 L 140 72 L 146 78" fill="none" stroke="#10b981" stroke-width="2" />
+    <text x="75" y="108" fill="#94a3b8" font-family="sans-serif" font-size="10.5">Operating_Systems_Unit3.pdf (1.4MB)</text>
+
+    <!-- Extracted Key Concepts List -->
+    <text x="20" y="155" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">GENERATED CHAPTER OUTLINE</text>
+    
+    <rect x="20" y="170" width="240" height="32" rx="6" fill="#0d121f" />
+    <text x="32" y="190" fill="#f8fafc" font-family="sans-serif" font-size="11">1. Deadlock Prevention &amp; Recovery</text>
+    
+    <rect x="20" y="210" width="240" height="32" rx="6" fill="#0d121f" />
+    <text x="32" y="230" fill="#f8fafc" font-family="sans-serif" font-size="11">2. Banker's Algorithm Math Proof</text>
+
+    <rect x="20" y="250" width="240" height="32" rx="6" fill="#0d121f" />
+    <text x="32" y="270" fill="#f8fafc" font-family="sans-serif" font-size="11">3. Virtual Memory &amp; Page Swapping</text>
+
+    <rect x="20" y="290" width="240" height="32" rx="6" fill="#0d121f" />
+    <text x="32" y="310" fill="#f8fafc" font-family="sans-serif" font-size="11">4. LRU Cache Replacement Strategy</text>
+
+    <rect x="20" y="335" width="240" height="34" rx="6" fill="#10b981" />
+    <text x="65" y="356" fill="#090a0f" font-family="sans-serif" font-size="11.5" font-weight="bold">Generate 10 Flashcards ⚡</text>
+  </g>
+
+  <!-- Right: Generated Flashcard & Quiz Interface -->
+  <g transform="translate(330, 65)">
+    <!-- Main Interactive Flashcard -->
+    <rect x="0" y="0" width="440" height="210" rx="12" fill="url(#cardStudy)" stroke="#10b981" stroke-width="1.5" />
+    <rect x="20" y="18" width="105" height="22" rx="11" fill="#10b981" fill-opacity="0.2" />
+    <text x="30" y="33" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="bold">FLASHCARD #3 OF 10</text>
+
+    <text x="350" y="33" fill="#64748b" font-family="sans-serif" font-size="11">Tap to Flip ↻</text>
+
+    <text x="20" y="70" fill="#f8fafc" font-family="sans-serif" font-size="15" font-weight="bold">What are the 4 Coffman conditions for Deadlock?</text>
+    
+    <rect x="20" y="90" width="400" height="75" rx="8" fill="#0a0e18" stroke="#1d2638" stroke-width="1" />
+    <text x="32" y="112" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="bold">AI Answer Summary:</text>
+    <text x="32" y="130" fill="#cbd5e1" font-family="sans-serif" font-size="11">1. Mutual Exclusion  •  2. Hold and Wait</text>
+    <text x="32" y="148" fill="#cbd5e1" font-family="sans-serif" font-size="11">3. No Preemption     •  4. Circular Wait</text>
+
+    <!-- Rating Buttons -->
+    <rect x="20" y="175" width="90" height="24" rx="6" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1" />
+    <text x="40" y="191" fill="#ef4444" font-family="sans-serif" font-size="10" font-weight="bold">Hard</text>
+
+    <rect x="120" y="175" width="90" height="24" rx="6" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1" />
+    <text x="140" y="191" fill="#f59e0b" font-family="sans-serif" font-size="10" font-weight="bold">Good</text>
+
+    <rect x="220" y="175" width="90" height="24" rx="6" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" />
+    <text x="245" y="191" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="bold">Easy</text>
+
+    <!-- Bottom: Interactive Practice Quiz -->
+    <g transform="translate(0, 225)">
+      <rect x="0" y="0" width="440" height="160" rx="12" fill="url(#cardStudy)" stroke="#1e293b" stroke-width="1" />
+      <text x="20" y="28" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Quick 2-Minute Practice Quiz</text>
+      <text x="360" y="28" fill="#38bdf8" font-family="sans-serif" font-size="11">Score: 4/5</text>
+
+      <text x="20" y="55" fill="#94a3b8" font-family="sans-serif" font-size="11.5">Q: Which algorithm guarantees avoidance of Deadlock in banking?</text>
+
+      <!-- Options -->
+      <rect x="20" y="68" width="195" height="34" rx="6" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" />
+      <text x="32" y="89" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="bold">✓ Banker's Algorithm</text>
+
+      <rect x="225" y="68" width="195" height="34" rx="6" fill="#0d121f" stroke="#1f293d" stroke-width="1" />
+      <text x="237" y="89" fill="#94a3b8" font-family="sans-serif" font-size="11">Round Robin Scheduler</text>
+
+      <rect x="20" y="110" width="195" height="34" rx="6" fill="#0d121f" stroke="#1f293d" stroke-width="1" />
+      <text x="32" y="131" fill="#94a3b8" font-family="sans-serif" font-size="11">FIFO Page Replacement</text>
+
+      <rect x="225" y="110" width="195" height="34" rx="6" fill="#0d121f" stroke="#1f293d" stroke-width="1" />
+      <text x="237" y="131" fill="#94a3b8" font-family="sans-serif" font-size="11">Dijkstra's Shortest Path</text>
+    </g>
+  </g>
+</svg>
