@@ -1,503 +1,623 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary Meta Tags -->
+
   <title>Gayathri C • Software Developer</title>
-  <meta name="title" content="Gayathri C • Software Developer">
-  <meta name="description" content="Portfolio of Gayathri C — Software Developer and B.Sc. Information Technology student from Coimbatore, Tamil Nadu. Building web applications, database systems, and AI MongoDB solutions.">
+  <meta name="description" content="Portfolio of Gayathri C, Software Developer and B.Sc. Information Technology student from Coimbatore, Tamil Nadu.">
+
   <meta name="author" content="Gayathri C">
   <meta name="theme-color" content="#080808">
 
-  <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://github.com/GAYATHRI-C-ux">
   <meta property="og:title" content="Gayathri C • Software Developer">
-  <meta property="og:description" content="Building software that solves real problems. Explore my projects, skills, and 14 verified certifications.">
+  <meta property="og:description" content="Explore my software projects, skills, and certifications.">
   <meta property="og:image" content="assets/images/gayathri-photo.jpg">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
-  <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Bento Grid Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <!-- Accessible Skip Link -->
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Minimalist Floating Header (DevBen Style: Brand Badge | Open to Work Pill | Slider Menu Button) -->
+  <!-- Header -->
   <header class="site-header" id="site-header">
     <div class="container header-container">
-      
-      <!-- Brand Logo -->
+
       <a href="#main-content" class="brand-badge" aria-label="Gayathri C Home">
         <span>GAYATHRI</span>
         <span class="bolt-icon" aria-hidden="true">⚡</span>
         <span>C</span>
       </a>
 
-      <!-- Header Actions -->
       <div class="header-right">
-        <!-- Open to Work Indicator -->
-        <div class="status-indicator-pill" title="Available for Software Developer Internships &amp; Roles">
-          <span class="status-dot-pulse" aria-hidden="true"></span>
+        <div class="status-indicator-pill">
+          <span class="status-dot-pulse"></span>
           <span>OPEN TO WORK</span>
         </div>
 
-        <!-- Slider Menu Toggle Button (Drawer) -->
-        <button type="button" class="slider-menu-btn" id="slider-menu-toggle" aria-label="Open navigation slider menu" aria-expanded="false" aria-controls="slider-drawer-panel">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <button type="button"
+          class="slider-menu-btn"
+          id="slider-menu-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="slider-drawer-panel">
+
+          <svg width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.2">
             <line x1="4" y1="7" x2="20" y2="7"></line>
             <line x1="4" y1="12" x2="20" y2="12"></line>
             <line x1="4" y1="17" x2="20" y2="17"></line>
           </svg>
+
         </button>
       </div>
-
     </div>
   </header>
 
-  <!-- Off-Canvas Slide-over Drawer Menu (Slider Menu) -->
+  <!-- Navigation Drawer -->
   <div class="drawer-backdrop" id="slider-drawer-backdrop" aria-hidden="true">
-    <aside class="drawer-panel" id="slider-drawer-panel" role="dialog" aria-modal="true" aria-label="Quick Navigation">
+
+    <aside class="drawer-panel" id="slider-drawer-panel"
+      role="dialog" aria-modal="true" aria-label="Quick Navigation">
+
       <div class="drawer-top">
         <div class="brand-badge">
           <span>GAYATHRI</span>
           <span class="bolt-icon">⚡</span>
           <span>C</span>
         </div>
-        <button type="button" class="drawer-close" id="slider-close-btn" aria-label="Close navigation menu">&times;</button>
+
+        <button type="button" class="drawer-close"
+          id="slider-close-btn" aria-label="Close menu">&times;</button>
       </div>
 
-      <nav class="drawer-nav" aria-label="Slide Menu Links">
-        <a href="#card-about" class="drawer-link slider-nav-link"><span class="num">01</span> About Dev</a>
-        <a href="#card-projects" class="drawer-link slider-nav-link"><span class="num">02</span> Featured Projects</a>
-        <a href="#card-stack" class="drawer-link slider-nav-link"><span class="num">03</span> Core Stack</a>
-        <a href="#card-journey" class="drawer-link slider-nav-link"><span class="num">04</span> Journey &amp; Education</a>
-        <a href="#card-certifications" class="drawer-link slider-nav-link"><span class="num">05</span> Certifications</a>
-        <a href="#card-contact" class="drawer-link slider-nav-link"><span class="num">06</span> Get in Touch</a>
+      <nav class="drawer-nav" aria-label="Navigation Links">
+        <a href="#card-about" class="drawer-link slider-nav-link">01 About Dev</a>
+        <a href="#card-projects" class="drawer-link slider-nav-link">02 Projects</a>
+        <a href="#card-stack" class="drawer-link slider-nav-link">03 Core Stack</a>
+        <a href="#card-journey" class="drawer-link slider-nav-link">04 Education</a>
+        <a href="#card-certifications" class="drawer-link slider-nav-link">05 Certifications</a>
+        <a href="#card-contact" class="drawer-link slider-nav-link">06 Contact</a>
       </nav>
 
       <div class="drawer-contact-info">
         <h4>Direct Contact</h4>
-        <a href="mailto:cgayathri286@gmail.com" class="drawer-contact-item">✉️ cgayathri286@gmail.com</a>
-        <a href="tel:8072963815" class="drawer-contact-item">📞 +91 8072963815</a>
-        <a href="https://github.com/GAYATHRI-C-ux" target="_blank" rel="noopener noreferrer" class="drawer-contact-item">💻 github.com/GAYATHRI-C-ux ↗</a>
-        <span style="font-size: 0.8125rem; color: var(--text-muted); display: block; margin-top: 0.5rem;">📍 Coimbatore, Tamil Nadu, India</span>
+        <a href="mailto:cgayathri286@gmail.com" class="drawer-contact-item">
+          ✉️ cgayathri286@gmail.com
+        </a>
+        <a href="tel:+918072963815" class="drawer-contact-item">
+          📞 +91 8072963815
+        </a>
+        <a href="https://github.com/GAYATHRI-C-ux"
+          target="_blank" rel="noopener noreferrer"
+          class="drawer-contact-item">
+          💻 GitHub Profile ↗
+        </a>
+        <p>📍 Coimbatore, Tamil Nadu, India</p>
       </div>
+
     </aside>
   </div>
 
-  <!-- Bento Grid Main Content -->
+  <!-- Main Content -->
   <main id="main-content" class="bento-section">
     <div class="container">
       <div class="bento-grid">
 
-        <!-- ==================================================================
-             BENTO ROW 1:
-             Card 1: About Dev (span 5)
-             Card 2: Photo Hero (span 3) - THE ONLY PHOTO ON THE ENTIRE WEBSITE
-             Card 3: Projects Slider (span 4)
-             ================================================================== -->
-
-        <!-- Card 1: About Dev -->
+        <!-- About -->
         <article class="bento-card card-about" id="card-about">
-          <h2 class="card-title">
-            <span>About Dev</span>
-          </h2>
+          <h2 class="card-title">About Dev</h2>
+
           <p>
-            A dedicated <strong>Software Developer</strong> and B.Sc. Information Technology student based in Coimbatore, Tamil Nadu. Driven by an insatiable curiosity for how software architectures, algorithms, and databases operate beneath the surface.
+            A dedicated <strong>Software Developer</strong> and B.Sc.
+            Information Technology student based in Coimbatore, Tamil Nadu.
+            Interested in software architecture, algorithms, and databases.
           </p>
+
           <p>
-            Proficient in <strong>Python, Java, and Web Technologies</strong> with hands-on practical project experience building career tracking engines and AI-enabled vector search applications using MongoDB.
+            Proficient in <strong>Python, Java, and Web Technologies</strong>,
+            with practical experience building software projects and
+            AI-enabled applications using MongoDB.
           </p>
+
           <div class="recruiter-note-box">
-            <strong>Recruiters &amp; Founders:</strong> I am actively seeking software development internships, entry-level engineering roles, and challenging tech collaborations. Let’s build something impactful together!
+            <strong>Recruiters &amp; Founders:</strong>
+            I am seeking software development internships, entry-level
+            opportunities, and technical collaborations.
           </div>
         </article>
 
-        <!-- Card 2: Photo Avatar Card (THE ONLY PHOTO ON THE ENTIRE PAGE) -->
-        <section class="bento-card card-photo-hero" id="card-photo-hero" aria-label="Gayathri Profile Summary">
+        <!-- Profile Photo -->
+        <section class="bento-card card-photo-hero"
+          id="card-photo-hero" aria-label="Gayathri Profile">
+
           <div class="hero-avatar-ring">
-            <img src="assets/images/gayathri-photo.jpg" alt="Portrait photo of Gayathri C, Software Developer" class="hero-avatar-img">
+            <img src="assets/images/gayathri-photo.jpg"
+              alt="Portrait of Gayathri C" class="hero-avatar-img">
           </div>
+
           <div class="avatar-location">
-            <span aria-hidden="true">📍</span> Coimbatore, Tamil Nadu
+            📍 Coimbatore, Tamil Nadu
           </div>
+
           <div class="avatar-links">
-            <a href="https://github.com/GAYATHRI-C-ux" target="_blank" rel="noopener noreferrer">
-              <span>github.com</span>
-              <span aria-hidden="true">↗</span>
+            <a href="https://github.com/GAYATHRI-C-ux"
+              target="_blank" rel="noopener noreferrer">
+              GitHub ↗
             </a>
-            <span style="color: var(--border-subtle);">&bull;</span>
-            <a href="mailto:cgayathri286@gmail.com">
-              <span>email</span>
-              <span aria-hidden="true">↗</span>
-            </a>
+
+            <span>•</span>
+
+            <a href="mailto:cgayathri286@gmail.com">Email ↗</a>
           </div>
         </section>
 
-        <!-- Card 3: Interactive Project Carousel Slider -->
+        <!-- Projects Slider -->
         <article class="bento-card card-projects-slider" id="card-projects">
+
           <div class="project-slider-top">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <h3 class="card-title" style="margin-bottom: 0;">Projects</h3>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+              <h3 class="card-title" style="margin-bottom:0">Projects</h3>
               <span class="ai-badge-pill" id="slider-badge">Featured</span>
             </div>
+
             <div class="slider-controls">
-              <span id="slider-counter" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-right: 0.4rem;">01 / 04</span>
-              <button type="button" class="slider-arrow-btn" id="slider-prev-btn" aria-label="Previous project">‹</button>
-              <button type="button" class="slider-arrow-btn" id="slider-next-btn" aria-label="Next project">›</button>
+              <span id="slider-counter"
+                style="font-family:var(--font-mono);font-size:0.75rem">
+                01 / 04
+              </span>
+
+              <button type="button" class="slider-arrow-btn"
+                id="slider-prev-btn" aria-label="Previous project">‹</button>
+
+              <button type="button" class="slider-arrow-btn"
+                id="slider-next-btn" aria-label="Next project">›</button>
             </div>
           </div>
 
-          <!-- Slide Visual Viewport -->
           <div class="project-slides-viewport" id="project-slides-viewport">
-            <!-- Slide 1: Skill Gap Tracking -->
-            <div class="project-slide-item active" data-index="0" data-badge="FEATURED" data-id="skillgap" data-title="Employment Outcome &amp; Skill Gap Tracking" data-desc="Analyzes student competencies against IT job benchmarks, identifying exact skill gaps and tracking career outcomes." data-tags="Python,SQLite,Algorithms">
-              <img src="assets/images/project-skill-gap.svg" alt="Employment Outcome &amp; Skill Gap Tracking Architecture" class="project-slide-img">
+
+            <!-- Project 1 -->
+            <div class="project-slide-item active"
+              data-index="0"
+              data-badge="FEATURED"
+              data-id="skillgap"
+              data-title="STUDENT INTERNSHIP SYSTEM"
+              data-desc="Analyzes student competencies against IT job requirements, identifies skill gaps, and tracks career outcomes."
+              data-tags="Python,SQLite,Algorithms">
+
+              <img src="assets/images/project-skill-gap.svg"
+                alt="STUDENT INTERNSHIP SYSTEM"
+                class="project-slide-img">
             </div>
-            <!-- Slide 2: MongoDB AI & RAG -->
-            <div class="project-slide-item" data-index="1" data-badge="AI &amp; RAG" data-id="mongoai" data-title="AI Applications with MongoDB Vector Search" data-desc="High-dimensional semantic search and Retrieval-Augmented Generation (RAG) using MongoDB Atlas vector indexes." data-tags="MongoDB Atlas,Vector Search,Python,RAG">
-              <img src="assets/images/project-mongodb-ai.svg" alt="MongoDB Atlas AI Vector Search and RAG Application" class="project-slide-img">
+
+            <!-- Project 2 -->
+            <div class="project-slide-item"
+              data-index="1"
+              data-badge="AI &amp; RAG"
+              data-id="mongoai"
+              data-title="AI Applications with MongoDB Vector Search"
+              data-desc="Uses MongoDB Atlas vector indexes for semantic search and Retrieval-Augmented Generation applications."
+              data-tags="MongoDB Atlas,Vector Search,Python,RAG">
+
+              <img src="assets/images/project-mongodb-ai.svg"
+                alt="MongoDB AI Vector Search Project"
+                class="project-slide-img">
             </div>
-            <!-- Slide 3: E-Commerce Storefront -->
-            <div class="project-slide-item" data-index="2" data-badge="WEB APP" data-id="ecom" data-title="Modern Web &amp; E-Commerce Storefront" data-desc="Fast-loading storefront with category filtering, dynamic local storage cart management, and seamless checkout simulation." data-tags="HTML5,CSS3 Grid,JavaScript,LocalStorage">
-              <img src="assets/images/project-ecommerce.svg" alt="Modern Web E-Commerce Storefront" class="project-slide-img">
+
+            <!-- Project 3 -->
+            <div class="project-slide-item"
+              data-index="2"
+              data-badge="WEB APP"
+              data-id="ecom"
+              data-title="Modern Web &amp; E-Commerce Storefront"
+              data-desc="A web storefront with category filtering, shopping cart management, and checkout simulation."
+              data-tags="HTML5,CSS3,JavaScript,LocalStorage">
+
+              <img src="assets/images/project-ecommerce.svg"
+                alt="E-Commerce Storefront Project"
+                class="project-slide-img">
             </div>
-            <!-- Slide 4: Student Internship System -->
-            <div class="project-slide-item" data-index="3" data-badge="JAVA OOP" data-id="intern" data-title="Student Internship System" data-desc="Java OOP console application — student applies, admin approves or rejects. Demonstrates classes, objects, Scanner I/O, and conditional logic." data-tags="Java,OOP,Scanner,Conditional Logic" data-page="projects/student-internship.html">
-              <img src="assets/images/project-internship.svg" alt="Student Internship System Java Project" class="project-slide-img">
+
+            <!-- Project 4: UPDATED PROJECT NAME -->
+            <div class="project-slide-item"
+              data-index="3"
+              data-badge="JAVA OOP"
+              data-id="intern"
+              data-title="Student Internship Management System"
+              data-desc="A Java console application that allows students to apply for internships and administrators to approve or reject applications. Demonstrates classes, objects, Scanner input, and conditional logic."
+              data-tags="Java,OOP,Scanner,Conditional Logic"
+              data-page="projects/student-internship.html">
+
+              <img src="assets/images/project-internship.svg"
+                alt="Student Internship Management System"
+                class="project-slide-img">
             </div>
+
           </div>
 
-          <!-- Active Slide Information & Action -->
+          <!-- Project Details -->
           <div class="slider-project-info">
-            <h4 class="slider-project-title" id="slider-info-title">Employment Outcome &amp; Skill Gap Tracking</h4>
-            <p class="slider-project-desc" id="slider-info-desc">Analyzes student competencies against IT job benchmarks, identifying exact skill gaps and tracking career outcomes.</p>
+
+            <h4 class="slider-project-title" id="slider-info-title">
+              STUDENT INTERNSHIP SYSTEM
+            </h4>
+
+            <p class="slider-project-desc" id="slider-info-desc">
+              Analyzes student competencies against IT job requirements.
+            </p>
+
             <div class="slider-project-tags" id="slider-info-tags">
               <span class="tag-pill">Python</span>
               <span class="tag-pill">SQLite</span>
-              <span class="tag-pill">Skill Analytics</span>
+              <span class="tag-pill">Algorithms</span>
             </div>
-            <button type="button" class="project-link-btn" id="slider-info-view-btn" data-modal="skillgap">
+
+            <button type="button" class="project-link-btn"
+              id="slider-info-view-btn" data-modal="skillgap">
               <span>View Details</span>
-              <span aria-hidden="true">↗</span>
+              <span>↗</span>
             </button>
+
           </div>
         </article>
 
-        <!-- ==================================================================
-             BENTO ROW 2:
-             Card 4: Core Stack (span 4)
-             Card 5: Giant Center Identity Banner (span 8)
-             ================================================================== -->
-
-        <!-- Card 4: Core Tech Stack -->
+        <!-- Core Stack -->
         <article class="bento-card card-stack" id="card-stack">
           <h3 class="card-title">Core Stack</h3>
+
           <div class="stack-icons-grid">
-            <!-- Python -->
-            <div class="stack-item" title="Python: Scripting, Analytics &amp; Automation">
+            <div class="stack-item">
               <div class="stack-icon">🐍</div>
               <span class="stack-name">Python</span>
             </div>
-            <!-- Java -->
-            <div class="stack-item" title="Java: OOP &amp; Advanced Programming">
+
+            <div class="stack-item">
               <div class="stack-icon">☕</div>
               <span class="stack-name">Java</span>
             </div>
-            <!-- C -->
-            <div class="stack-item" title="C: Systems &amp; Low-Level Fundamentals">
+
+            <div class="stack-item">
               <div class="stack-icon">⚙️</div>
               <span class="stack-name">C</span>
             </div>
-            <!-- JavaScript -->
-            <div class="stack-item" title="JavaScript: Dynamic Interactivity (ES6+)">
+
+            <div class="stack-item">
               <div class="stack-icon">⚡</div>
               <span class="stack-name">JavaScript</span>
             </div>
-            <!-- HTML5 -->
-            <div class="stack-item" title="HTML5: Semantic Markup &amp; Accessibility">
+
+            <div class="stack-item">
               <div class="stack-icon">🌐</div>
               <span class="stack-name">HTML5</span>
             </div>
-            <!-- CSS3 -->
-            <div class="stack-item" title="CSS3: Responsive Grid &amp; Modern Layouts">
+
+            <div class="stack-item">
               <div class="stack-icon">🎨</div>
               <span class="stack-name">CSS3</span>
             </div>
-            <!-- SQLite -->
-            <div class="stack-item" title="SQLite: Relational Database Design">
+
+            <div class="stack-item">
               <div class="stack-icon">🗄️</div>
               <span class="stack-name">SQLite</span>
             </div>
-            <!-- MongoDB -->
-            <div class="stack-item" title="MongoDB: Document Stores &amp; Vector Indexes">
+
+            <div class="stack-item">
               <div class="stack-icon">🍃</div>
               <span class="stack-name">MongoDB</span>
             </div>
           </div>
+
           <div class="stack-badge-footer">
-            ✓ Continuously expanding full-stack &amp; AI toolchains
+            ✓ Continuously expanding technical skills
           </div>
         </article>
 
-        <!-- Card 5: Big Center Identity Banner (DevBen Centerpiece) -->
-        <article class="bento-card card-identity-banner" id="card-identity-banner">
+        <!-- Identity Banner -->
+        <article class="bento-card card-identity-banner"
+          id="card-identity-banner">
+
           <div class="live-view-count">
-            <span class="status-dot-pulse" aria-hidden="true"></span>
-            <span>100+ Live Visitors</span>
+            <span class="status-dot-pulse"></span>
+            <span>Software Developer</span>
           </div>
+
           <h1 class="banner-huge-name">
             GAYATHRI <span class="bolt-symbol">⚡</span> C
           </h1>
+
           <p class="banner-slogan">
-            <strong>SOFTWARE DEVELOPER</strong> &bull; CRAFTING HIGH-PERFORMANCE WEB EXPERIENCES THAT DRIVE REAL RESULTS
+            <strong>SOFTWARE DEVELOPER</strong>
+            • CRAFTING WEB EXPERIENCES AND SOFTWARE SOLUTIONS
           </p>
         </article>
 
-        <!-- ==================================================================
-             BENTO ROW 3:
-             Card 6: Academic & Tech Journey (span 4)
-             Card 7: 14 Verified Certifications (span 5)
-             Card 8: Get In Touch (span 3)
-             ================================================================== -->
-
-        <!-- Card 6: Academic & Professional Journey -->
+        <!-- Education -->
         <article class="bento-card card-journey" id="card-journey">
           <h3 class="card-title">Journey</h3>
+
           <div class="journey-timeline">
-            <!-- Timeline Item 1 -->
+
             <div class="journey-item">
-              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-dot"></div>
               <div class="journey-content">
                 <h4>B.Sc. Information Technology</h4>
-                <p class="journey-org">KG College of Arts and Science, Coimbatore</p>
-                <span class="journey-date">2025 &ndash; 2028 &bull; CGPA: 7.4</span>
+                <p class="journey-org">
+                  KG College of Arts and Science, Coimbatore
+                </p>
+                <span class="journey-date">2025 – 2028 • CGPA: 7.4</span>
               </div>
             </div>
-            <!-- Timeline Item 2 -->
+
             <div class="journey-item">
-              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-dot"></div>
               <div class="journey-content">
                 <h4>Software Project Development</h4>
-                <p class="journey-org">Academic &amp; Applied Engineering</p>
-                <span class="journey-date">2025 &ndash; PRESENT</span>
+                <p class="journey-org">Academic &amp; Applied Projects</p>
+                <span class="journey-date">2025 – PRESENT</span>
               </div>
             </div>
-            <!-- Timeline Item 3 -->
+
             <div class="journey-item">
-              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-dot"></div>
               <div class="journey-content">
-                <h4>Industry Upskilling &amp; Credentials</h4>
+                <h4>Industry Certifications</h4>
                 <p class="journey-org">MongoDB, Microsoft, IBM &amp; NPTEL</p>
                 <span class="journey-date">14 CREDENTIALS EARNED</span>
               </div>
             </div>
+
           </div>
         </article>
 
-        <!-- Card 7: 14 Verified Certifications -->
-        <article class="bento-card card-certifications" id="card-certifications">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
-            <h3 class="card-title" style="margin-bottom: 0;">Verified Credentials</h3>
-            <span class="tag-pill" style="color: var(--accent-gold); border-color: rgba(245, 158, 11, 0.3);">14 Issued</span>
+        <!-- Certifications -->
+        <article class="bento-card card-certifications"
+          id="card-certifications">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem">
+            <h3 class="card-title" style="margin-bottom:0">
+              Verified Credentials
+            </h3>
+            <span class="tag-pill">14 Issued</span>
           </div>
-          <div class="cert-scroll-list" role="region" aria-label="14 Verified Certifications">
-            <!-- Cert 1 -->
+
+          <div class="cert-scroll-list" role="region"
+            aria-label="Certifications">
+
             <div class="cert-mini-row">
               <span class="cert-name-text">MongoDB Vector Search</span>
               <span class="cert-tag-issuer">MongoDB</span>
             </div>
-            <!-- Cert 2 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Connecting AI Agents to MongoDB</span>
               <span class="cert-tag-issuer">MongoDB</span>
             </div>
-            <!-- Cert 3 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Resilient AI Strategy</span>
               <span class="cert-tag-issuer">MongoDB</span>
             </div>
-            <!-- Cert 4 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">MongoDB Basics</span>
               <span class="cert-tag-issuer">MongoDB</span>
             </div>
-            <!-- Cert 5 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Building RAG Applications with MongoDB</span>
               <span class="cert-tag-issuer">MongoDB</span>
             </div>
-            <!-- Cert 6 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Microsoft Azure Fundamentals (AZ-900)</span>
               <span class="cert-tag-issuer">Microsoft</span>
             </div>
-            <!-- Cert 7 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Microsoft Secure Networking</span>
               <span class="cert-tag-issuer">Microsoft</span>
             </div>
-            <!-- Cert 8 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">IBM Cybersecurity Roles &amp; Operating Systems</span>
               <span class="cert-tag-issuer">IBM</span>
             </div>
-            <!-- Cert 9 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Web Development (HTML, CSS, JS)</span>
               <span class="cert-tag-issuer">IBM</span>
             </div>
-            <!-- Cert 10 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Advanced Java Programming</span>
               <span class="cert-tag-issuer">KGISL MicroCollege</span>
             </div>
-            <!-- Cert 11 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Object-Oriented Programming in Java</span>
               <span class="cert-tag-issuer">Coursera</span>
             </div>
-            <!-- Cert 12 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Linux &amp; Systems Security Fundamentals</span>
               <span class="cert-tag-issuer">Pearson</span>
             </div>
-            <!-- Cert 13 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Process Mining Fundamentals</span>
               <span class="cert-tag-issuer">Celonis</span>
             </div>
-            <!-- Cert 14 -->
+
             <div class="cert-mini-row">
               <span class="cert-name-text">Systems Security Principles</span>
               <span class="cert-tag-issuer">NPTEL / IIT Indore</span>
             </div>
+
           </div>
         </article>
 
-        <!-- Card 8: Quick Contact Action -->
+        <!-- Contact -->
         <article class="bento-card card-contact-action" id="card-contact">
+
           <div>
-            <h3 class="card-title">Get in touch</h3>
+            <h3 class="card-title">Get in Touch</h3>
+
             <div class="contact-quick-links">
-              <a href="mailto:cgayathri286@gmail.com" class="quick-contact-btn">
+
+              <a href="mailto:cgayathri286@gmail.com"
+                class="quick-contact-btn">
                 <span>✉️ Email</span>
-                <span>cgayathri286 ↗</span>
+                <span>Contact Me ↗</span>
               </a>
-              <a href="tel:8072963815" class="quick-contact-btn">
+
+              <a href="tel:+918072963815"
+                class="quick-contact-btn">
                 <span>📞 Call / WhatsApp</span>
                 <span>+91 8072963815 ↗</span>
               </a>
-              <a href="https://github.com/GAYATHRI-C-ux" target="_blank" rel="noopener noreferrer" class="quick-contact-btn">
+
+              <a href="https://github.com/GAYATHRI-C-ux/Student-Internship-System"
+                target="_blank" rel="noopener noreferrer"
+                class="quick-contact-btn">
                 <span>💻 GitHub</span>
                 <span>GAYATHRI-C-ux ↗</span>
               </a>
+
             </div>
           </div>
 
-          <!-- Send A Message Button (Triggers Accessible Modal) -->
-          <button type="button" class="btn-message-launch" id="btn-open-contact-modal">
-            <span>Send a message</span>
-            <span aria-hidden="true">✉</span>
+          <button type="button" class="btn-message-launch"
+            id="btn-open-contact-modal">
+            <span>Send a Message</span>
+            <span>✉</span>
           </button>
+
         </article>
 
       </div>
     </div>
   </main>
 
-  <!-- Site Footer -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <p>
-        &copy; <span id="current-year">2026</span> <strong>Gayathri C</strong>. Built with Semantic HTML, CSS3 &amp; Vanilla JavaScript.
+        &copy; <span id="current-year">2026</span>
+        <strong>Gayathri C</strong>.
+        Built with HTML, CSS and JavaScript.
       </p>
-      <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">
-        Dark Bento Grid Portfolio &bull; Hosted on Vercel &bull; <a href="https://github.com/GAYATHRI-C-ux" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">GitHub Profile</a>
+
+      <p style="margin-top:0.5rem;font-size:0.75rem">
+        Dark Bento Grid Portfolio •
+        <a href="https://github.com/GAYATHRI-C-ux"
+          target="_blank" rel="noopener noreferrer">
+          GitHub Profile
+        </a>
       </p>
     </div>
   </footer>
 
-  <!-- ======================================================================
-       ACCESSIBLE MODALS:
-       1. Contact Modal
-       2. Project Detail Modal
-       ====================================================================== -->
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="contact-modal"
+    role="dialog" aria-modal="true"
+    aria-labelledby="contact-modal-title" aria-hidden="true">
 
-  <!-- 1. Contact Form Modal -->
-  <div class="modal-backdrop" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true">
     <div class="modal-dialog">
-      <button type="button" class="modal-close-btn" id="contact-modal-close" aria-label="Close contact dialog">&times;</button>
-      
-      <h3 id="contact-modal-title" style="font-size: 1.5rem; margin-bottom: 0.35rem; color: var(--text-title);">
-        Let's Connect
-      </h3>
-      <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-        Fill out this form and it will prepare a pre-filled direct email to <strong>cgayathri286@gmail.com</strong>.
+
+      <button type="button" class="modal-close-btn"
+        id="contact-modal-close" aria-label="Close dialog">
+        &times;
+      </button>
+
+      <h3 id="contact-modal-title">Let's Connect</h3>
+
+      <p>
+        Complete this form to prepare an email to
+        cgayathri286@gmail.com.
       </p>
 
       <form id="contact-form" novalidate>
+
         <div class="form-group">
           <label for="contact-name" class="form-label">Your Name *</label>
-          <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Johnson" required autocomplete="name">
+          <input type="text" id="contact-name" class="form-input"
+            placeholder="Enter your name" required autocomplete="name">
         </div>
 
         <div class="form-group">
           <label for="contact-email" class="form-label">Your Email *</label>
-          <input type="email" id="contact-email" class="form-input" placeholder="e.g. alex@company.com" required autocomplete="email">
+          <input type="email" id="contact-email" class="form-input"
+            placeholder="Enter your email" required autocomplete="email">
         </div>
 
         <div class="form-group">
           <label for="contact-subject" class="form-label">Inquiry Topic</label>
           <select id="contact-subject" class="form-select">
-            <option value="Internship / Full-time Opportunity">Software Developer Internship / Role</option>
-            <option value="Freelance Web Project">Website or Web Application Project</option>
-            <option value="Technical Collaboration">Technical Collaboration / AI Project</option>
-            <option value="General Question">General Inquiry / Mentorship</option>
+            <option value="Internship / Full-time Opportunity">
+              Software Developer Internship / Role
+            </option>
+            <option value="Freelance Web Project">
+              Website or Web Application Project
+            </option>
+            <option value="Technical Collaboration">
+              Technical Collaboration / AI Project
+            </option>
+            <option value="General Question">General Inquiry</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="contact-msg" class="form-label">Message *</label>
-          <textarea id="contact-msg" class="form-textarea" rows="4" placeholder="Tell me about your project, team, or opportunity..." required></textarea>
+          <textarea id="contact-msg" class="form-textarea"
+            rows="4" placeholder="Enter your message" required></textarea>
         </div>
 
-        <button type="submit" class="btn-message-launch" style="margin-top: 1rem;">
+        <button type="submit" class="btn-message-launch">
           <span>Send via Email Client</span>
-          <span aria-hidden="true">↗</span>
+          <span>↗</span>
         </button>
+
       </form>
     </div>
   </div>
 
-  <!-- 2. Project Detail Modal -->
-  <div class="modal-backdrop" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" aria-hidden="true">
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="project-modal"
+    role="dialog" aria-modal="true"
+    aria-labelledby="project-modal-title" aria-hidden="true">
+
     <div class="modal-dialog">
-      <button type="button" class="modal-close-btn" id="project-modal-close" aria-label="Close project dialog">&times;</button>
-      <div id="project-modal-content">
-        <!-- Dynamically injected by JavaScript -->
-      </div>
+
+      <button type="button" class="modal-close-btn"
+        id="project-modal-close" aria-label="Close project dialog">
+        &times;
+      </button>
+
+      <div id="project-modal-content"></div>
+
     </div>
   </div>
 
-  <!-- Toast Notification Feedback -->
+  <!-- Notification -->
   <div class="toast" id="toast" role="status" aria-live="polite">
-    <span aria-hidden="true">⚡</span>
+    <span>⚡</span>
     <span id="toast-message">Notification message</span>
   </div>
 
-  <!-- Vanilla JavaScript -->
   <script src="js/script.js"></script>
+
 </body>
 </html>
+```
