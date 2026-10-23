@@ -1,51 +1,55 @@
-/**
- * ============================================================================
- * Gayathri C - Software Developer Portfolio Scripts
- * Bento Grid UI (DevBen Style)
- * Vanilla JavaScript (ES6+) - Zero dependencies
- * ============================================================================
- */
+
+/* Gayathri C - Portfolio JavaScript */
 
 (function () {
   'use strict';
 
-  // --------------------------------------------------------------------------
-  // 1. Project Detail Data from Resume
-  // --------------------------------------------------------------------------
+  const GITHUB_REPO =
+    'https://github.com/GAYATHRI-C-ux/Student-Internship-System';
+
   const projectDetails = {
     skillgap: {
-      title: 'Employment Outcome & Skill Gap Tracking Platform',
-      category: 'Career Analytics • Skill Matching • Python • SQLite',
+      title: 'STUDENT INTERNSHIP SYSTEM',
+      category: 'Student Internship System',
       image: 'assets/images/project-skill-gap.svg',
-      problem: 'Graduating IT students and early-career software developers often struggle to identify the exact technical competencies and framework proficiencies required by tech recruiters, leading to misaligned interview preparation and missed opportunities.',
-      solution: 'Architected a comprehensive platform that benchmarks individual developer skills against live industry job specifications. The system calculates competency match percentages, detects specific skill gaps, recommends targeted certification tracks (MongoDB, Microsoft, IBM), and tracks post-training employment placement outcomes.',
-      techStack: ['Python', 'HTML5 & CSS3', 'SQLite Database', 'Competency Gap Analytics', 'Placement Tracking Engine'],
-      repoUrl: 'https://github.com/GAYATHRI-C-ux'
+      problem: 'Students need a simple system to understand internship opportunities and career skills.',
+      solution: 'The Student Internship System helps manage student internship information and applications.',
+      techStack: ['Python', 'SQLite', 'Algorithms'],
+      repoUrl: GITHUB_REPO
     },
+
     mongoai: {
-      title: 'AI-Powered Applications with MongoDB (Vector Search & RAG)',
-      category: 'AI Vector Search • RAG Architecture • MongoDB Atlas • AI Agents',
+      title: 'AI Applications with MongoDB',
+      category: 'AI Vector Search and RAG',
       image: 'assets/images/project-mongodb-ai.svg',
-      problem: 'Traditional keyword search engines fail to understand semantic developer intent, while standalone LLMs without knowledge grounding frequently hallucinate outdated or incorrect domain data.',
-      solution: 'Engineered an end-to-end intelligent application leveraging MongoDB Atlas Vector Search and Retrieval-Augmented Generation (RAG). Queries are converted into high-dimensional vector embeddings, matched via cosine similarity against indexed document collections, and routed into an AI agent loop for grounded, hallucination-free decision making.',
-      techStack: ['MongoDB Atlas', 'Vector Search Indexing', 'RAG Pipeline', 'Python', 'AI Agents', 'Embeddings API'],
+      problem: 'Traditional search may not understand the meaning of user queries.',
+      solution: 'Uses MongoDB Vector Search and Retrieval-Augmented Generation.',
+      techStack: ['MongoDB', 'Python', 'RAG'],
       repoUrl: 'https://github.com/GAYATHRI-C-ux'
     },
+
     ecom: {
       title: 'Modern Web & E-Commerce Storefront',
-      category: 'Web Application • HTML5 • CSS3 Grid • JavaScript (ES6+)',
+      category: 'Web Application',
       image: 'assets/images/project-ecommerce.svg',
-      problem: 'Many e-commerce templates rely on bulky external libraries and complex frameworks, which slows down initial page load times and complicates lightweight product catalog management.',
-      solution: 'Developed a high-performance web storefront built entirely with semantic HTML5, modern CSS Grid, and vanilla JavaScript (ES6+). Features interactive product catalog filtering, real-time cart persistence via browser LocalStorage, coupon code verification, and a responsive multi-step checkout simulation.',
-      techStack: ['HTML5 Semantic Markup', 'CSS3 Grid & Flexbox', 'Vanilla JavaScript (ES6+)', 'Browser LocalStorage API'],
+      problem: 'Online stores need simple product browsing and cart management.',
+      solution: 'A storefront using HTML, CSS and JavaScript.',
+      techStack: ['HTML', 'CSS', 'JavaScript'],
       repoUrl: 'https://github.com/GAYATHRI-C-ux'
+    },
+
+    intern: {
+      title: 'STUDENT INTERNSHIP SYSTEM',
+      category: 'Java Application',
+      image: 'assets/images/project-internship.svg',
+      problem: 'Students need to manage internship applications.',
+      solution: 'A Java application demonstrating internship application management.',
+      techStack: ['Java', 'OOP', 'Scanner'],
+      repoUrl: GITHUB_REPO
     }
   };
 
-  // --------------------------------------------------------------------------
-  // 2. DOM Ready Initialization
-  // --------------------------------------------------------------------------
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function () {
     initDynamicYear();
     initSliderMenu();
     initProjectSlider();
@@ -54,371 +58,353 @@
     initContactForm();
   });
 
-  // --------------------------------------------------------------------------
-  // 3. Dynamic Copyright Year
-  // --------------------------------------------------------------------------
+  // Dynamic copyright year
   function initDynamicYear() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
+    const year = document.getElementById('current-year');
+
+    if (year) {
+      year.textContent = new Date().getFullYear();
     }
   }
 
-  // --------------------------------------------------------------------------
-  // 4. Off-Canvas Slide-Over Drawer Menu (Slider Menu)
-  // --------------------------------------------------------------------------
+  // Navigation menu
   function initSliderMenu() {
-    const toggleBtn = document.getElementById('slider-menu-toggle');
+    const toggle = document.getElementById('slider-menu-toggle');
     const backdrop = document.getElementById('slider-drawer-backdrop');
-    const closeBtn = document.getElementById('slider-close-btn');
-    const drawerLinks = document.querySelectorAll('.slider-nav-link');
+    const close = document.getElementById('slider-close-btn');
 
-    if (!toggleBtn || !backdrop || !closeBtn) return;
+    if (!toggle || !backdrop || !close) return;
 
-    const openDrawer = () => {
+    function openMenu() {
       backdrop.classList.add('is-open');
       backdrop.setAttribute('aria-hidden', 'false');
-      toggleBtn.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    };
+      close.focus();
+    }
 
-    const closeDrawer = () => {
+    function closeMenu() {
       backdrop.classList.remove('is-open');
       backdrop.setAttribute('aria-hidden', 'true');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      toggleBtn.focus();
-    };
+      toggle.focus();
+    }
 
-    toggleBtn.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
+    toggle.addEventListener('click', openMenu);
+    close.addEventListener('click', closeMenu);
 
-    // Close when clicking directly on backdrop
-    backdrop.addEventListener('click', (e) => {
-      if (e.target === backdrop) closeDrawer();
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) closeMenu();
     });
 
-    // Close on any navigation link click
-    drawerLinks.forEach((link) => {
-      link.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.slider-nav-link').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
     });
 
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
-        closeDrawer();
+        closeMenu();
       }
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 5. Interactive Project Carousel Slider
-  // --------------------------------------------------------------------------
+  // Project slider
   function initProjectSlider() {
     const slides = document.querySelectorAll('.project-slide-item');
-    const prevBtn = document.getElementById('slider-prev-btn');
-    const nextBtn = document.getElementById('slider-next-btn');
-    const counterEl = document.getElementById('slider-counter');
-    const badgeEl = document.getElementById('slider-badge');
-    const titleEl = document.getElementById('slider-info-title');
-    const descEl = document.getElementById('slider-info-desc');
-    const tagsEl = document.getElementById('slider-info-tags');
+    const prev = document.getElementById('slider-prev-btn');
+    const next = document.getElementById('slider-next-btn');
+    const counter = document.getElementById('slider-counter');
+    const badge = document.getElementById('slider-badge');
+    const title = document.getElementById('slider-info-title');
+    const desc = document.getElementById('slider-info-desc');
+    const tags = document.getElementById('slider-info-tags');
     const viewBtn = document.getElementById('slider-info-view-btn');
 
-    if (!slides.length || !prevBtn || !nextBtn) return;
+    if (!slides.length || !prev || !next) return;
 
-    let currentIndex = 0;
-    const total = slides.length;
+    let current = 0;
 
-    const updateSlider = (index) => {
-      // Loop around
-      if (index < 0) {
-        currentIndex = total - 1;
-      } else if (index >= total) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
+    function updateSlider(index) {
+      current = (index + slides.length) % slides.length;
 
-      // Update active slide class
-      slides.forEach((slide, idx) => {
-        if (idx === currentIndex) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.remove('active');
-        }
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle('active', i === current);
       });
 
-      const activeSlide = slides[currentIndex];
-      const badge = activeSlide.getAttribute('data-badge') || 'PROJECT';
-      const title = activeSlide.getAttribute('data-title') || '';
-      const desc = activeSlide.getAttribute('data-desc') || '';
-      const tags = (activeSlide.getAttribute('data-tags') || '').split(',');
-      const projectId = activeSlide.getAttribute('data-id') || '';
-      const pagePath  = activeSlide.getAttribute('data-page') || '';
+      const slide = slides[current];
+      const projectId = slide.dataset.id || 'skillgap';
+      const project = projectDetails[projectId] || projectDetails.skillgap;
 
-      // Update text & counter
-      if (counterEl) {
-        const pad = (n) => String(n).padStart(2, '0');
-        counterEl.textContent = `${pad(currentIndex + 1)} / ${pad(total)}`;
+      if (counter) {
+        counter.textContent =
+          String(current + 1).padStart(2, '0') +
+          ' / ' +
+          String(slides.length).padStart(2, '0');
       }
-      if (badgeEl) {
-        badgeEl.textContent = badge;
+
+      if (badge) {
+        badge.textContent = slide.dataset.badge || 'PROJECT';
       }
-      if (titleEl) {
-        titleEl.textContent = title;
+
+      if (title) {
+        title.textContent = slide.dataset.title || project.title;
       }
-      if (descEl) {
-        descEl.textContent = desc;
+
+      if (desc) {
+        desc.textContent = slide.dataset.desc || '';
       }
-      if (tagsEl) {
-        tagsEl.innerHTML = tags
-          .map((t) => `<span class="tag-pill">${escapeHtml(t.trim())}</span>`)
-          .join('');
+
+      if (tags) {
+        tags.replaceChildren();
+
+        (slide.dataset.tags || '').split(',').forEach(function (tag) {
+          const span = document.createElement('span');
+          span.className = 'tag-pill';
+          span.textContent = tag.trim();
+
+          if (tag.trim()) tags.appendChild(span);
+        });
       }
+
+      // Always make the project button a GitHub link.
       if (viewBtn) {
-        // If this slide has a dedicated page, navigate to it; otherwise open modal
-        if (pagePath) {
-          viewBtn.setAttribute('data-modal', '');
-          viewBtn.setAttribute('data-page', pagePath);
-        } else {
-          viewBtn.setAttribute('data-modal', projectId);
-          viewBtn.removeAttribute('data-page');
+        viewBtn.removeAttribute('data-modal');
+
+        if (viewBtn.tagName === 'A') {
+          viewBtn.href = project.repoUrl;
+          viewBtn.target = '_blank';
+          viewBtn.rel = 'noopener noreferrer';
+          viewBtn.querySelector('span')?.replaceChildren(
+            document.createTextNode('View on GitHub')
+          );
         }
       }
-    };
+    }
 
-    prevBtn.addEventListener('click', () => {
-      updateSlider(currentIndex - 1);
+    prev.addEventListener('click', function () {
+      updateSlider(current - 1);
     });
 
-    nextBtn.addEventListener('click', () => {
-      updateSlider(currentIndex + 1);
+    next.addEventListener('click', function () {
+      updateSlider(current + 1);
     });
 
-    // Touch swipe support on project slides
     const viewport = document.getElementById('project-slides-viewport');
-    if (viewport) {
-      let touchStartX = 0;
-      let touchEndX = 0;
 
-      viewport.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
+    if (viewport) {
+      let startX = 0;
+
+      viewport.addEventListener('touchstart', function (e) {
+        startX = e.changedTouches[0].screenX;
       }, { passive: true });
 
-      viewport.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 45) {
-          updateSlider(currentIndex + 1); // Swipe left -> next
-        } else if (touchEndX - touchStartX > 45) {
-          updateSlider(currentIndex - 1); // Swipe right -> prev
-        }
+      viewport.addEventListener('touchend', function (e) {
+        const endX = e.changedTouches[0].screenX;
+
+        if (startX - endX > 45) updateSlider(current + 1);
+        if (endX - startX > 45) updateSlider(current - 1);
       }, { passive: true });
     }
+
+    updateSlider(0);
   }
 
-  // --------------------------------------------------------------------------
-  // 6. Contact Form Modal
-  // --------------------------------------------------------------------------
+  // Contact modal
   function initContactModal() {
     const modal = document.getElementById('contact-modal');
-    const openBtn = document.getElementById('btn-open-contact-modal');
-    const closeBtn = document.getElementById('contact-modal-close');
+    const open = document.getElementById('btn-open-contact-modal');
+    const close = document.getElementById('contact-modal-close');
 
-    if (!modal || !closeBtn) return;
+    if (!modal || !close) return;
 
-    const openModal = (e) => {
-      if (e) e.preventDefault();
+    function openModal() {
       modal.classList.add('is-active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      const firstInput = modal.querySelector('input');
-      if (firstInput) firstInput.focus();
-    };
+      modal.querySelector('input')?.focus();
+    }
 
-    const closeModal = () => {
+    function closeModal() {
       modal.classList.remove('is-active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      if (openBtn) openBtn.focus();
-    };
-
-    if (openBtn) {
-      openBtn.addEventListener('click', openModal);
+      open?.focus();
     }
 
-    closeBtn.addEventListener('click', closeModal);
+    open?.addEventListener('click', openModal);
+    close.addEventListener('click', closeModal);
 
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener('click', function (e) {
       if (e.target === modal) closeModal();
     });
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && modal.classList.contains('is-active')) {
         closeModal();
       }
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 7. Project Detail Modal
-  // --------------------------------------------------------------------------
+  // Project details modal
   function initProjectModal() {
     const modal = document.getElementById('project-modal');
     const content = document.getElementById('project-modal-content');
-    const closeBtn = document.getElementById('project-modal-close');
+    const close = document.getElementById('project-modal-close');
 
-    if (!modal || !content || !closeBtn) return;
+    if (!modal || !content || !close) return;
 
-    const openProject = (projectId) => {
-      const data = projectDetails[projectId];
+    function openProject(id) {
+      const data = projectDetails[id];
       if (!data) return;
 
-      const techBadges = data.techStack
-        .map((t) => `<span class="tag-pill" style="font-size: 0.75rem; padding: 0.25rem 0.65rem; margin-right: 0.35rem; margin-bottom: 0.35rem; display: inline-block;">${escapeHtml(t)}</span>`)
-        .join('');
+      content.replaceChildren();
 
-      content.innerHTML = `
-        <img src="${data.image}" alt="${escapeHtml(data.title)}" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.25rem; border: 1px solid var(--border-subtle);">
-        
-        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent-gold); display: block; margin-bottom: 0.4rem; letter-spacing: 0.05em;">
-          ${escapeHtml(data.category)}
-        </span>
+      const heading = document.createElement('h3');
+      heading.textContent = data.title;
 
-        <h3 style="font-size: 1.65rem; margin-bottom: 1rem; color: var(--text-title); line-height: 1.25;">
-          ${escapeHtml(data.title)}
-        </h3>
+      const category = document.createElement('p');
+      category.textContent = data.category;
 
-        <div style="margin-bottom: 1rem;">
-          <strong style="display: block; font-size: 0.8125rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; letter-spacing: 0.04em;">Problem Being Solved:</strong>
-          <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--text-body);">${escapeHtml(data.problem)}</p>
-        </div>
+      const problemTitle = document.createElement('strong');
+      problemTitle.textContent = 'Problem Being Solved:';
 
-        <div style="margin-bottom: 1.25rem;">
-          <strong style="display: block; font-size: 0.8125rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; letter-spacing: 0.04em;">Implementation &amp; Solution:</strong>
-          <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--text-body);">${escapeHtml(data.solution)}</p>
-        </div>
+      const problem = document.createElement('p');
+      problem.textContent = data.problem;
 
-        <div style="margin-bottom: 1.5rem;">
-          <strong style="display: block; font-size: 0.8125rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.04em;">Technologies Used:</strong>
-          <div style="display: flex; flex-wrap: wrap;">${techBadges}</div>
-        </div>
+      const solutionTitle = document.createElement('strong');
+      solutionTitle.textContent = 'Implementation & Solution:';
 
-        <div style="display: flex; gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
-          <a href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-message-launch" style="width: auto; padding: 0.65rem 1.25rem; font-size: 0.8125rem;">
-            <span>View on GitHub</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      `;
+      const solution = document.createElement('p');
+      solution.textContent = data.solution;
+
+      const techTitle = document.createElement('strong');
+      techTitle.textContent = 'Technologies Used:';
+
+      const tech = document.createElement('p');
+      tech.textContent = data.techStack.join(', ');
+
+      const link = document.createElement('a');
+      link.href = data.repoUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.className = 'btn-message-launch';
+      link.textContent = 'View on GitHub ↗';
+
+      content.append(
+        heading,
+        category,
+        problemTitle,
+        problem,
+        solutionTitle,
+        solution,
+        techTitle,
+        tech,
+        link
+      );
 
       modal.classList.add('is-active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    };
+      close.focus();
+    }
 
-    const closeProject = () => {
+    // Only elements that intentionally request a modal open it.
+    document.addEventListener('click', function (e) {
+      const button = e.target.closest('[data-modal]');
+
+      if (button && button.id !== 'slider-info-view-btn') {
+        e.preventDefault();
+        openProject(button.getAttribute('data-modal'));
+      }
+    });
+
+    close.addEventListener('click', function () {
       modal.classList.remove('is-active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-    };
+    });
 
-    // Event delegation for any button with data-modal or data-page
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-modal],[data-page]');
-      if (!btn) return;
-
-      const pagePath = btn.getAttribute('data-page');
-      const modalId  = btn.getAttribute('data-modal');
-
-      // If there's a dedicated page, navigate there
-      if (pagePath) {
-        e.preventDefault();
-        window.location.href = pagePath;
-        return;
-      }
-
-      // Otherwise open the project detail modal (if modal id is non-empty)
-      if (modalId) {
-        e.preventDefault();
-        openProject(modalId);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
       }
     });
 
-    closeBtn.addEventListener('click', closeProject);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeProject();
-    });
-
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && modal.classList.contains('is-active')) {
-        closeProject();
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
       }
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 8. Contact Form Validation & Mailto
-  // --------------------------------------------------------------------------
+  // Contact form
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const nameInput = document.getElementById('contact-name');
-      const emailInput = document.getElementById('contact-email');
-      const subjectInput = document.getElementById('contact-subject');
-      const msgInput = document.getElementById('contact-msg');
+      const name = document.getElementById('contact-name');
+      const email = document.getElementById('contact-email');
+      const subject = document.getElementById('contact-subject');
+      const message = document.getElementById('contact-msg');
 
-      if (!nameInput.value.trim() || !emailInput.value.trim() || !msgInput.value.trim()) {
+      if (
+        !name?.value.trim() ||
+        !email?.value.trim() ||
+        !message?.value.trim()
+      ) {
         showToast('Please fill in all required fields.');
         return;
       }
 
       const recipient = 'cgayathri286@gmail.com';
-      const subject = encodeURIComponent(`[Portfolio Inquiry] ${subjectInput.value} - ${nameInput.value.trim()}`);
-      const body = encodeURIComponent(
-        `Hello Gayathri,\n\nMy name is ${nameInput.value.trim()} (${emailInput.value.trim()}).\n\nTopic: ${subjectInput.value}\n\nMessage:\n${msgInput.value.trim()}\n\nLooking forward to speaking with you.`
+      const mailSubject = encodeURIComponent(
+        '[Portfolio Inquiry] ' + subject.value + ' - ' + name.value.trim()
       );
 
-      showToast('Opening your email client to send...');
-      setTimeout(() => {
-        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+      const body = encodeURIComponent(
+        'Hello Gayathri,\n\n' +
+        'My name is ' + name.value.trim() +
+        ' (' + email.value.trim() + ').\n\n' +
+        'Topic: ' + subject.value + '\n\n' +
+        'Message:\n' + message.value.trim()
+      );
+
+      showToast('Opening your email client...');
+
+      setTimeout(function () {
+        window.location.href =
+          'mailto:' + recipient +
+          '?subject=' + mailSubject +
+          '&body=' + body;
       }, 350);
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 9. Toast Helper
-  // --------------------------------------------------------------------------
-  let toastTimer = null;
-  function showToast(msg) {
-    const toast = document.getElementById('toast');
-    const toastMsg = document.getElementById('toast-message');
-    if (!toast || !toastMsg) return;
+  // Toast notification
+  let toastTimer;
 
-    toastMsg.textContent = msg;
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const text = document.getElementById('toast-message');
+
+    if (!toast || !text) return;
+
+    text.textContent = message;
     toast.classList.add('is-visible');
 
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(function () {
       toast.classList.remove('is-visible');
     }, 3200);
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
   }
 
 })();
