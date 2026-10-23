@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Internship System — Gayathri C</title>
+  <meta name="description" content="Student Internship System — Java OOP project by Gayathri C. Interactive web demo with live application submission and admin review.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       CSS CUSTOM PROPERTIES — matches portfolio dark theme
+       ========================================================= */
+    :root {
+      --bg-page:         #080808;
+      --bg-card:         #111111;
+      --bg-card-hover:   #161616;
+      --bg-subtle:       #141414;
+      --bg-input:        #0a0a0a;
+      --text-title:      #f8fafc;
+      --text-body:       #a1a1aa;
+      --text-muted:      #71717a;
+      --accent-gold:     #f59e0b;
+      --accent-green:    #10b981;
+      --accent-red:      #ef4444;
+      --accent-blue:     #3b82f6;
+      --accent-purple:   #8b5cf6;
+      --border-subtle:   rgba(255,255,255,0.08);
+      --border-medium:   rgba(255,255,255,0.16);
+      --font-sans:       'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono:       'JetBrains Mono', monospace;
+      --radius-card:     18px;
+      --radius-sm:       8px;
+      --radius-pill:     9999px;
+      --transition:      250ms ease;
+    }
+
+    /* =========================================================
+       BASE RESET
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(245,158,11,0.04) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(16,185,129,0.03) 0%, transparent 45%);
+    }
+    h1, h2, h3, h4 { color: var(--text-title); line-height: 1.25; font-weight: 700; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font-sans); cursor: pointer; }
+    code, pre { font-family: var(--font-mono); }
+
+    /* =========================================================
+       STICKY HEADER
+       ========================================================= */
+    .page-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,8,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 1.5rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .header-back-link:hover { color: var(--text-title); }
+    .header-back-link .arrow { font-size: 1rem; }
+    .header-breadcrumb {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .header-breadcrumb span { color: var(--text-title); font-weight: 600; }
+    .header-github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-title);
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-pill);
+      background: var(--bg-card);
+      transition: all var(--transition);
+    }
+    .header-github-link:hover { background: var(--bg-card-hover); border-color: rgba(255,255,255,0.25); }
+
+    /* =========================================================
+       PAGE LAYOUT
+       ========================================================= */
+    .page-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* =========================================================
+       PROJECT HERO BANNER
+       ========================================================= */
+    .project-hero {
+      margin-bottom: 2rem;
+    }
+    .project-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .meta-badge {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+    }
+    .meta-badge.java { background: rgba(245,158,11,0.12); color: var(--accent-gold); border: 1px solid rgba(245,158,11,0.3); }
+    .meta-badge.oop { background: rgba(139,92,246,0.12); color: var(--accent-purple); border: 1px solid rgba(139,92,246,0.3); }
+    .meta-badge.console { background: rgba(59,130,246,0.12); color: var(--accent-blue); border: 1px solid rgba(59,130,246,0.3); }
+    .project-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: var(--text-title);
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
+    }
+    .project-subtitle {
+      font-size: 0.9375rem;
+      color: var(--text-body);
+      max-width: 620px;
+      line-height: 1.65;
+    }
+
+    /* =========================================================
+       SECTION CARDS
+       ========================================================= */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      transition: border-color var(--transition);
+    }
+    .section-card:hover { border-color: var(--border-medium); }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent-gold);
+    }
+
+    /* =========================================================
+       INTERNSHIP APPLICATION FORM (STEP 1)
+       ========================================================= */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-title);
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      transition: border-color var(--transition);
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(245,158,11,0.08);
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--text-title);
+      color: #000;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.9375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background var(--transition), transform 120ms ease;
+    }
+    .btn-submit:hover { background: #e2e8f0; }
+    .btn-submit:active { transform: scale(0.98); }
+    .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* =========================================================
+       APPLICATION SUMMARY (STEP 2 — shown after submit)
+       ========================================================= */
+    .app-summary {
+      display: none;
+    }
+    .app-summary.visible { display: block; }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.25rem;
+    }
+    .summary-table tr { border-bottom: 1px solid var(--border-subtle); }
+    .summary-table tr:last-child { border-bottom: none; }
+    .summary-table td {
+      padding: 0.65rem 0;
+      font-size: 0.9375rem;
+    }
+    .summary-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      width: 130px;
+    }
+    .summary-table td:last-child {
+      font-weight: 600;
+      color: var(--text-title);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+    .status-badge.pending {
+      background: rgba(245,158,11,0.12);
+      color: var(--accent-gold);
+      border: 1px solid rgba(245,158,11,0.3);
+    }
+    .status-badge.approved {
+      background: rgba(16,185,129,0.12);
+      color: var(--accent-green);
+      border: 1px solid rgba(16,185,129,0.3);
+    }
+    .status-badge.rejected {
+      background: rgba(239,68,68,0.12);
+      color: var(--accent-red);
+      border: 1px solid rgba(239,68,68,0.3);
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+    .status-badge.pending .status-dot { background: var(--accent-gold); box-shadow: 0 0 6px var(--accent-gold); }
+    .status-badge.approved .status-dot { background: var(--accent-green); box-shadow: 0 0 6px var(--accent-green); }
+    .status-badge.rejected .status-dot { background: var(--accent-red); box-shadow: 0 0 6px var(--accent-red); }
+
+    /* =========================================================
+       ADMIN REVIEW SECTION (STEP 3)
+       ========================================================= */
+    .admin-section { display: none; }
+    .admin-section.visible { display: block; }
+
+    .admin-review-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+    .review-line-key { color: var(--text-muted); }
+    .review-line-val { color: var(--text-title); font-weight: 600; }
+
+    .admin-btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .btn-approve {
+      padding: 0.85rem;
+      background: rgba(16,185,129,0.12);
+      color: var(--accent-green);
+      border: 1px solid rgba(16,185,129,0.35);
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.9375rem;
+      transition: all var(--transition);
+    }
+    .btn-approve:hover { background: rgba(16,185,129,0.22); }
+    .btn-approve:active { transform: scale(0.98); }
+    .btn-reject {
+      padding: 0.85rem;
+      background: rgba(239,68,68,0.10);
+      color: var(--accent-red);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.9375rem;
+      transition: all var(--transition);
+    }
+    .btn-reject:hover { background: rgba(239,68,68,0.2); }
+    .btn-reject:active { transform: scale(0.98); }
+
+    /* =========================================================
+       FINAL STATUS RESULT (STEP 4)
+       ========================================================= */
+    .final-status-card {
+      display: none;
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      margin-top: 0;
+    }
+    .final-status-card.approved {
+      display: block;
+      background: rgba(16,185,129,0.07);
+      border: 1px solid rgba(16,185,129,0.25);
+    }
+    .final-status-card.rejected {
+      display: block;
+      background: rgba(239,68,68,0.07);
+      border: 1px solid rgba(239,68,68,0.25);
+    }
+    .final-status-icon { font-size: 2.5rem; margin-bottom: 0.65rem; }
+    .final-status-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .final-status-text {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+    .final-status-card.approved .final-status-text { color: var(--accent-green); }
+    .final-status-card.rejected .final-status-text { color: var(--accent-red); }
+    .final-status-note { font-size: 0.8125rem; color: var(--text-muted); }
+
+    .btn-reset {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1.25rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--bg-card);
+      color: var(--text-title);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-pill);
+      font-size: 0.875rem;
+      font-weight: 700;
+      transition: all var(--transition);
+    }
+    .btn-reset:hover { background: var(--bg-card-hover); }
+
+    /* =========================================================
+       SOURCE CODE SECTION
+       ========================================================= */
+    .code-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .code-header-left { display: flex; flex-direction: column; gap: 0.15rem; }
+    .code-filename {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .btn-copy-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-pill);
+      color: var(--text-title);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn-copy-code:hover { background: #1f1f1f; }
+    .btn-copy-code.copied { color: var(--accent-green); border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.08); }
+
+    .code-block-container {
+      position: relative;
+      background: #000;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      overflow: auto;
+      max-height: 520px;
+    }
+    /* Thin scrollbar */
+    .code-block-container::-webkit-scrollbar { width: 5px; height: 5px; }
+    .code-block-container::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+    pre.java-code {
+      padding: 1.5rem;
+      margin: 0;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      white-space: pre;
+      tab-size: 4;
+    }
+
+    /* Syntax highlighting via CSS classes */
+    .kw  { color: #f59e0b; }   /* keyword */
+    .tp  { color: #8b5cf6; }   /* type */
+    .st  { color: #10b981; }   /* string */
+    .cm  { color: #4b5563; font-style: italic; }   /* comment */
+    .mt  { color: #60a5fa; }   /* method */
+    .nm  { color: #f8fafc; }   /* number */
+    .cl  { color: #e879f9; }   /* class name */
+
+    /* =========================================================
+       CONCEPTS SECTION
+       ========================================================= */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 0.85rem;
+    }
+    .concept-item {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      transition: all var(--transition);
+    }
+    .concept-item:hover { border-color: var(--border-medium); transform: translateY(-2px); }
+    .concept-icon { font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .concept-title { font-size: 0.875rem; font-weight: 700; color: var(--text-title); margin-bottom: 0.2rem; }
+    .concept-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.45; }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .page-footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 3rem;
+    }
+    .page-footer a { color: var(--text-title); font-weight: 600; }
+    .page-footer a:hover { color: var(--accent-gold); }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 640px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .admin-btn-row { grid-template-columns: 1fr; }
+      .page-header { padding: 0 1rem; }
+      .header-breadcrumb { display: none; }
+      .page-container { padding: 1.5rem 1rem 4rem; }
+      .project-title { font-size: 1.5rem; }
+      pre.java-code { font-size: 0.8125rem; }
+    }
+
+    /* =========================================================
+       STEP INDICATOR
+       ========================================================= */
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 2rem;
+    }
+    .step-node {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-medium);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      transition: all var(--transition);
+    }
+    .step-num.active { background: var(--accent-gold); border-color: var(--accent-gold); color: #000; }
+    .step-num.done { background: var(--accent-green); border-color: var(--accent-green); color: #fff; }
+    .step-label { color: var(--text-muted); }
+    .step-label.active { color: var(--text-title); }
+    .step-divider {
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 0 0.5rem;
+      max-width: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="page-header">
+    <a href="../index.html" class="header-back-link" aria-label="Back to portfolio">
+      <span class="arrow">←</span>
+      <span>Back to Portfolio</span>
+    </a>
+    <div class="header-breadcrumb">
+      gayathri-c / <span>student-internship-system</span>
+    </div>
+    <a href="https://github.com/GAYATHRI-C-ux/personal-portfolio" target="_blank" rel="noopener noreferrer" class="header-github-link" aria-label="View source on GitHub">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      <span>GitHub</span>
+    </a>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="page-container">
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+      <div class="project-meta-row">
+        <span class="meta-badge java">Java</span>
+        <span class="meta-badge oop">OOP</span>
+        <span class="meta-badge console">Console Application</span>
+      </div>
+      <h1 class="project-title">Student Internship System</h1>
+      <p class="project-subtitle">
+        A Java Object-Oriented Programming project that simulates an internship application workflow — from student form submission to admin approval or rejection — built using classes, objects, Scanner I/O, and conditional logic.
+      </p>
+    </section>
+
+    <!-- Step Indicator -->
+    <div class="step-indicator" id="step-indicator" aria-label="Application progress">
+      <div class="step-node">
+        <div class="step-num active" id="step-num-1">1</div>
+        <span class="step-label active" id="step-lbl-1">Apply</span>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-node">
+        <div class="step-num" id="step-num-2">2</div>
+        <span class="step-label" id="step-lbl-2">Review</span>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-node">
+        <div class="step-num" id="step-num-3">3</div>
+        <span class="step-label" id="step-lbl-3">Decision</span>
+      </div>
+    </div>
+
+    <!-- ==================== STEP 1: APPLICATION FORM ==================== -->
+    <section class="section-card" id="section-form">
+      <div class="section-label">Step 1 — Student Application Form</div>
+      <form id="internship-form" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="f-name" class="form-label">Student Name *</label>
+            <input type="text" id="f-name" class="form-input" placeholder="e.g. Gayathri C" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="f-company" class="form-label">Company Name *</label>
+            <input type="text" id="f-company" class="form-input" placeholder="e.g. TCS" required>
+          </div>
+          <div class="form-group full">
+            <label for="f-role" class="form-label">Role Applied For *</label>
+            <input type="text" id="f-role" class="form-input" placeholder="e.g. Software Developer Intern" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" id="btn-submit-form">
+          <span>Submit Application</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <!-- Validation message -->
+      <p id="form-error" style="display:none; margin-top:0.75rem; color:var(--accent-red); font-size:0.875rem; font-weight:600;"></p>
+    </section>
+
+    <!-- ==================== STEP 2: APPLICATION SUBMITTED ==================== -->
+    <div class="app-summary" id="section-submitted">
+      <section class="section-card">
+        <div class="section-label">Application Submitted</div>
+        <table class="summary-table" id="summary-table" aria-label="Submitted application details">
+          <tbody>
+            <tr>
+              <td class="review-line-key">Name&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td id="sum-name" class="review-line-val">—</td>
+            </tr>
+            <tr>
+              <td class="review-line-key">Company&nbsp;</td>
+              <td id="sum-company" class="review-line-val">—</td>
+            </tr>
+            <tr>
+              <td class="review-line-key">Role&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td id="sum-role" class="review-line-val">—</td>
+            </tr>
+            <tr>
+              <td class="review-line-key">Status&nbsp;&nbsp;</td>
+              <td>
+                <span class="status-badge pending" id="current-status-badge">
+                  <span class="status-dot"></span>
+                  <span id="current-status-text">Pending</span>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- ==================== STEP 3: ADMIN REVIEW ==================== -->
+    <div class="admin-section" id="section-admin">
+      <section class="section-card">
+        <div class="section-label">Step 2 — Admin Review</div>
+        <div class="admin-review-box" id="admin-review-box">
+          <!-- Populated by JS -->
+        </div>
+        <div class="admin-btn-row" id="admin-btn-row">
+          <button type="button" class="btn-approve" id="btn-approve" aria-label="Approve this internship application">
+            ✓ &nbsp;Approve
+          </button>
+          <button type="button" class="btn-reject" id="btn-reject" aria-label="Reject this internship application">
+            ✗ &nbsp;Reject
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== STEP 4: FINAL STATUS ==================== -->
+    <section class="section-card" id="section-final" style="display:none;">
+      <div class="section-label">Final Decision</div>
+      <div class="final-status-card" id="final-result-card">
+        <div class="final-status-icon" id="final-icon"></div>
+        <div class="final-status-label">Updated Application Status</div>
+        <div class="final-status-text" id="final-status-text"></div>
+        <p class="final-status-note" id="final-note"></p>
+      </div>
+      <div style="text-align:center;">
+        <button type="button" class="btn-reset" id="btn-reset" aria-label="Reset and submit a new application">
+          <span>↩</span>
+          <span>Submit another application</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== SOURCE CODE ==================== -->
+    <section class="section-card" style="margin-top: 2rem;">
+      <div class="code-section-header">
+        <div class="code-header-left">
+          <div class="section-label" style="margin-bottom:0.2rem;">Original Java Source Code</div>
+          <div class="code-filename">InternshipSystem.java</div>
+        </div>
+        <button type="button" class="btn-copy-code" id="btn-copy-code" aria-label="Copy Java source code to clipboard">
+          <span id="copy-icon">⎘</span>
+          <span id="copy-label">Copy Code</span>
+        </button>
+      </div>
+
+      <div class="code-block-container">
+        <pre class="java-code" id="java-source-code" aria-label="Java source code for Student Internship System"><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">class</span> <span class="cl">Internship</span> {
+    <span class="tp">String</span> name;
+    <span class="tp">String</span> company;
+    <span class="tp">String</span> role;
+    <span class="tp">String</span> status;
+}
+
+<span class="kw">public class</span> <span class="cl">InternshipSystem</span> {
+    <span class="kw">public static void</span> <span class="mt">main</span>(<span class="tp">String</span>[] args) {
+
+        Scanner sc = <span class="kw">new</span> Scanner(System.in);
+        <span class="cl">Internship</span> s = <span class="kw">new</span> <span class="cl">Internship</span>();
+        <span class="tp">int</span> choice;
+
+        System.out.<span class="mt">println</span>(<span class="st">"----- STUDENT INTERNSHIP SYSTEM -----"</span>);
+
+        <span class="cm">// Input student details</span>
+        System.out.<span class="mt">print</span>(<span class="st">"Enter Student Name: "</span>);
+        s.name = sc.<span class="mt">nextLine</span>();
+
+        System.out.<span class="mt">print</span>(<span class="st">"Enter Company Name: "</span>);
+        s.company = sc.<span class="mt">nextLine</span>();
+
+        System.out.<span class="mt">print</span>(<span class="st">"Enter Role: "</span>);
+        s.role = sc.<span class="mt">nextLine</span>();
+
+        <span class="cm">// Initial status</span>
+        s.status = <span class="st">"Pending"</span>;
+
+        <span class="cm">// Display application</span>
+        System.out.<span class="mt">println</span>(<span class="st">"\n--- Application Submitted ---"</span>);
+        System.out.<span class="mt">println</span>(<span class="st">"Name    : "</span> + s.name);
+        System.out.<span class="mt">println</span>(<span class="st">"Company : "</span> + s.company);
+        System.out.<span class="mt">println</span>(<span class="st">"Role    : "</span> + s.role);
+        System.out.<span class="mt">println</span>(<span class="st">"Status  : "</span> + s.status);
+
+        <span class="cm">// Admin decision</span>
+        System.out.<span class="mt">println</span>(<span class="st">"\nAdmin Review:"</span>);
+        System.out.<span class="mt">println</span>(<span class="st">"1. Approve"</span>);
+        System.out.<span class="mt">println</span>(<span class="st">"2. Reject"</span>);
+        System.out.<span class="mt">print</span>(<span class="st">"Enter choice: "</span>);
+        choice = sc.<span class="mt">nextInt</span>();
+
+        <span class="kw">if</span> (choice == <span class="nm">1</span>) {
+            s.status = <span class="st">"Approved"</span>;
+        } <span class="kw">else</span> {
+            s.status = <span class="st">"Rejected"</span>;
+        }
+
+        <span class="cm">// Display updated status</span>
+        System.out.<span class="mt">println</span>(<span class="st">"\n--- Updated Status ---"</span>);
+        System.out.<span class="mt">println</span>(<span class="st">"Final Status: "</span> + s.status);
+        System.out.<span class="mt">println</span>(<span class="st">"\nThank You!"</span>);
+
+        sc.<span class="mt">close</span>();
+    }
+}</pre>
+      </div>
+    </section>
+
+    <!-- ==================== CONCEPTS USED ==================== -->
+    <section class="section-card" style="margin-top: 1.25rem;">
+      <div class="section-label">Java Concepts Used in This Project</div>
+      <div class="concepts-grid">
+        <div class="concept-item">
+          <div class="concept-icon">🧱</div>
+          <div class="concept-title">Class &amp; Object</div>
+          <div class="concept-desc"><code>Internship</code> class acts as a blueprint; <code>s</code> is the object instance that holds actual data.</div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-icon">📋</div>
+          <div class="concept-title">Instance Variables</div>
+          <div class="concept-desc"><code>name</code>, <code>company</code>, <code>role</code>, and <code>status</code> are fields on the <code>Internship</code> object.</div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-icon">⌨️</div>
+          <div class="concept-title">Scanner (I/O)</div>
+          <div class="concept-desc"><code>Scanner</code> reads user input line-by-line (<code>nextLine()</code>) and integers (<code>nextInt()</code>) from stdin.</div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-icon">🔀</div>
+          <div class="concept-title">Conditional Logic</div>
+          <div class="concept-desc"><code>if-else</code> evaluates the admin's integer choice to set the final status to Approved or Rejected.</div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-icon">🖨️</div>
+          <div class="concept-title">System.out.println</div>
+          <div class="concept-desc">Standard Java console output prints application details and updated decision to the terminal.</div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-icon">📦</div>
+          <div class="concept-title">Static Main Method</div>
+          <div class="concept-desc">Program entry point — <code>public static void main(String[] args)</code> is where JVM begins execution.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BACK LINK ==================== -->
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="../index.html" class="btn-reset" style="display:inline-flex;">
+        <span>←</span>
+        <span>Back to Portfolio</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="page-footer">
+    <p>
+      Built by <a href="../index.html">Gayathri C</a> &bull;
+      <a href="https://github.com/GAYATHRI-C-ux" target="_blank" rel="noopener noreferrer">GitHub</a> &bull;
+      &copy; <span id="footer-year">2026</span>
+    </p>
+  </footer>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script>
+    'use strict';
+
+    // ── DOM refs ──────────────────────────────────────────
+    const form          = document.getElementById('internship-form');
+    const fName         = document.getElementById('f-name');
+    const fCompany      = document.getElementById('f-company');
+    const fRole         = document.getElementById('f-role');
+    const formError     = document.getElementById('form-error');
+
+    const sectionSubmitted = document.getElementById('section-submitted');
+    const sumName          = document.getElementById('sum-name');
+    const sumCompany       = document.getElementById('sum-company');
+    const sumRole          = document.getElementById('sum-role');
+    const statusBadge      = document.getElementById('current-status-badge');
+    const statusText       = document.getElementById('current-status-text');
+
+    const sectionAdmin  = document.getElementById('section-admin');
+    const adminReviewBox= document.getElementById('admin-review-box');
+    const adminBtnRow   = document.getElementById('admin-btn-row');
+    const btnApprove    = document.getElementById('btn-approve');
+    const btnReject     = document.getElementById('btn-reject');
+
+    const sectionFinal  = document.getElementById('section-final');
+    const finalCard     = document.getElementById('final-result-card');
+    const finalIcon     = document.getElementById('final-icon');
+    const finalText     = document.getElementById('final-status-text');
+    const finalNote     = document.getElementById('final-note');
+
+    const btnReset      = document.getElementById('btn-reset');
+    const btnCopyCode   = document.getElementById('btn-copy-code');
+    const copyLabel     = document.getElementById('copy-label');
+    const javaSource    = document.getElementById('java-source-code');
+
+    // Step indicator nodes
+    const stepNum  = [1,2,3].map(n => document.getElementById(`step-num-${n}`));
+    const stepLbl  = [1,2,3].map(n => document.getElementById(`step-lbl-${n}`));
+
+    // Application state
+    let appData = { name: '', company: '', role: '', status: 'Pending' };
+
+    // ── Utilities ─────────────────────────────────────────
+    function esc(str) {
+      return String(str)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function setStep(step) {
+      stepNum.forEach((el, i) => {
+        el.classList.remove('active','done');
+        stepLbl[i].classList.remove('active');
+        if (i + 1 < step)       { el.classList.add('done'); el.textContent = '✓'; }
+        else if (i + 1 === step) { el.classList.add('active'); }
+      });
+      stepLbl[step - 1].classList.add('active');
+    }
+
+    // ── STEP 1: Form Submit ────────────────────────────────
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formError.style.display = 'none';
+
+      const name    = fName.value.trim();
+      const company = fCompany.value.trim();
+      const role    = fRole.value.trim();
+
+      if (!name || !company || !role) {
+        formError.textContent = 'Please fill in all required fields before submitting.';
+        formError.style.display = 'block';
+        return;
+      }
+
+      appData = { name, company, role, status: 'Pending' };
+
+      // Populate summary
+      sumName.textContent    = name;
+      sumCompany.textContent = company;
+      sumRole.textContent    = role;
+      setStatusBadge('pending', 'Pending');
+
+      // Populate admin review box
+      adminReviewBox.innerHTML =
+        `<span class="review-line-key">Name    : </span><span class="review-line-val">${esc(name)}</span>\n` +
+        `<span class="review-line-key">Company : </span><span class="review-line-val">${esc(company)}</span>\n` +
+        `<span class="review-line-key">Role    : </span><span class="review-line-val">${esc(role)}</span>\n` +
+        `<span class="review-line-key">Status  : </span><span style="color:var(--accent-gold);font-weight:700;">Pending</span>`;
+
+      // Show submitted & admin sections
+      sectionSubmitted.classList.add('visible');
+      sectionAdmin.classList.add('visible');
+      sectionFinal.style.display = 'none';
+      finalCard.className = 'final-status-card';
+      adminBtnRow.style.display = '';
+
+      setStep(2);
+
+      // Scroll to submitted card
+      sectionSubmitted.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // ── STEP 2: Admin Decision ─────────────────────────────
+    function applyDecision(decision) {
+      appData.status = decision;
+
+      // Update summary badge
+      setStatusBadge(decision.toLowerCase(), decision);
+
+      // Update admin review box status line
+      const color = decision === 'Approved' ? 'var(--accent-green)' : 'var(--accent-red)';
+      adminReviewBox.innerHTML =
+        `<span class="review-line-key">Name    : </span><span class="review-line-val">${esc(appData.name)}</span>\n` +
+        `<span class="review-line-key">Company : </span><span class="review-line-val">${esc(appData.company)}</span>\n` +
+        `<span class="review-line-key">Role    : </span><span class="review-line-val">${esc(appData.role)}</span>\n` +
+        `<span class="review-line-key">Status  : </span><span style="color:${color};font-weight:700;">${esc(decision)}</span>`;
+
+      // Disable buttons after decision
+      adminBtnRow.style.display = 'none';
+
+      // Show final card
+      sectionFinal.style.display = 'block';
+      finalCard.className = `final-status-card ${decision.toLowerCase()}`;
+      if (decision === 'Approved') {
+        finalIcon.textContent = '🎉';
+        finalText.textContent = 'Application APPROVED';
+        finalNote.textContent = `Congratulations, ${appData.name}! Your application for the ${appData.role} role at ${appData.company} has been approved.`;
+      } else {
+        finalIcon.textContent = '❌';
+        finalText.textContent = 'Application REJECTED';
+        finalNote.textContent = `Thank you for applying, ${appData.name}. Unfortunately, your application for the ${appData.role} role at ${appData.company} was not successful this time.`;
+      }
+
+      setStep(3);
+      sectionFinal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function setStatusBadge(cls, label) {
+      statusBadge.className = `status-badge ${cls}`;
+      statusText.textContent = label;
+    }
+
+    btnApprove.addEventListener('click', () => applyDecision('Approved'));
+    btnReject.addEventListener('click',  () => applyDecision('Rejected'));
+
+    // ── RESET ──────────────────────────────────────────────
+    btnReset.addEventListener('click', () => {
+      form.reset();
+      formError.style.display = 'none';
+      sectionSubmitted.classList.remove('visible');
+      sectionAdmin.classList.remove('visible');
+      sectionFinal.style.display = 'none';
+      finalCard.className = 'final-status-card';
+      adminBtnRow.style.display = '';
+      appData = { name:'', company:'', role:'', status:'Pending' };
+      setStep(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      fName.focus();
+    });
+
+    // ── COPY CODE ─────────────────────────────────────────
+    btnCopyCode.addEventListener('click', () => {
+      const rawCode = `import java.util.Scanner;
+
+class Internship {
+    String name;
+    String company;
+    String role;
+    String status;
+}
+
+public class InternshipSystem {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Internship s = new Internship();
+        int choice;
+
+        System.out.println("----- STUDENT INTERNSHIP SYSTEM -----");
+
+        System.out.print("Enter Student Name: ");
+        s.name = sc.nextLine();
+
+        System.out.print("Enter Company Name: ");
+        s.company = sc.nextLine();
+
+        System.out.print("Enter Role: ");
+        s.role = sc.nextLine();
+
+        s.status = "Pending";
+
+        System.out.println("\\n--- Application Submitted ---");
+        System.out.println("Name    : " + s.name);
+        System.out.println("Company : " + s.company);
+        System.out.println("Role    : " + s.role);
+        System.out.println("Status  : " + s.status);
+
+        System.out.println("\\nAdmin Review:");
+        System.out.println("1. Approve");
+        System.out.println("2. Reject");
+        System.out.print("Enter choice: ");
+        choice = sc.nextInt();
+
+        if (choice == 1) {
+            s.status = "Approved";
+        } else {
+            s.status = "Rejected";
+        }
+
+        System.out.println("\\n--- Updated Status ---");
+        System.out.println("Final Status: " + s.status);
+        System.out.println("\\nThank You!");
+
+        sc.close();
+    }
+}`;
+
+      navigator.clipboard.writeText(rawCode).then(() => {
+        btnCopyCode.classList.add('copied');
+        copyLabel.textContent = 'Copied!';
+        setTimeout(() => {
+          btnCopyCode.classList.remove('copied');
+          copyLabel.textContent = 'Copy Code';
+        }, 2200);
+      }).catch(() => {
+        copyLabel.textContent = 'Copy failed';
+        setTimeout(() => { copyLabel.textContent = 'Copy Code'; }, 2000);
+      });
+    });
+
+    // ── Footer year ────────────────────────────────────────
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

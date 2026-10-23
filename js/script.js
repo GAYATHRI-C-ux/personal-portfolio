@@ -129,12 +129,13 @@
     if (!slides.length || !prevBtn || !nextBtn) return;
 
     let currentIndex = 0;
+    const total = slides.length;
 
     const updateSlider = (index) => {
       // Loop around
       if (index < 0) {
-        currentIndex = slides.length - 1;
-      } else if (index >= slides.length) {
+        currentIndex = total - 1;
+      } else if (index >= total) {
         currentIndex = 0;
       } else {
         currentIndex = index;
@@ -154,11 +155,13 @@
       const title = activeSlide.getAttribute('data-title') || '';
       const desc = activeSlide.getAttribute('data-desc') || '';
       const tags = (activeSlide.getAttribute('data-tags') || '').split(',');
-      const projectId = activeSlide.getAttribute('data-id') || 'skillgap';
+      const projectId = activeSlide.getAttribute('data-id') || '';
+      const pagePath  = activeSlide.getAttribute('data-page') || '';
 
       // Update text & counter
       if (counterEl) {
-        counterEl.textContent = `0${currentIndex + 1} / 0${slides.length}`;
+        const pad = (n) => String(n).padStart(2, '0');
+        counterEl.textContent = `${pad(currentIndex + 1)} / ${pad(total)}`;
       }
       if (badgeEl) {
         badgeEl.textContent = badge;
@@ -175,7 +178,14 @@
           .join('');
       }
       if (viewBtn) {
-        viewBtn.setAttribute('data-modal', projectId);
+        // If this slide has a dedicated page, navigate to it; otherwise open modal
+        if (pagePath) {
+          viewBtn.setAttribute('data-modal', '');
+          viewBtn.setAttribute('data-page', pagePath);
+        } else {
+          viewBtn.setAttribute('data-modal', projectId);
+          viewBtn.removeAttribute('data-page');
+        }
       }
     };
 
@@ -315,13 +325,25 @@
       document.body.style.overflow = '';
     };
 
-    // Event delegation for any button with data-modal
+    // Event delegation for any button with data-modal or data-page
     document.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-modal]');
-      if (btn) {
+      const btn = e.target.closest('[data-modal],[data-page]');
+      if (!btn) return;
+
+      const pagePath = btn.getAttribute('data-page');
+      const modalId  = btn.getAttribute('data-modal');
+
+      // If there's a dedicated page, navigate there
+      if (pagePath) {
         e.preventDefault();
-        const id = btn.getAttribute('data-modal');
-        openProject(id);
+        window.location.href = pagePath;
+        return;
+      }
+
+      // Otherwise open the project detail modal (if modal id is non-empty)
+      if (modalId) {
+        e.preventDefault();
+        openProject(modalId);
       }
     });
 
